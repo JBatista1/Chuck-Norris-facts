@@ -10,12 +10,15 @@
 		77F6928FDD5DE8FF41F5FF2D /* libPods-Chuck-Norris-factsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1895B7C9CFC3E4D0F6A7E /* libPods-Chuck-Norris-factsUITests.a */; };
 		9A6DBD9A238CA3DE006D7805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */; };
 		9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */; };
-		9A6DBD9E238CA3DE006D7805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD9D238CA3DE006D7805 /* ViewController.swift */; };
-		9A6DBDA1238CA3DE006D7805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBD9F238CA3DE006D7805 /* Main.storyboard */; };
 		9A6DBDA3238CA3E0006D7805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */; };
 		9A6DBDA6238CA3E0006D7805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBDA4238CA3E0006D7805 /* LaunchScreen.storyboard */; };
 		9A6DBDB1238CA3E0006D7805 /* Chuck_Norris_factsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBDB0238CA3E0006D7805 /* Chuck_Norris_factsTests.swift */; };
 		9A6DBDBC238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBDBB238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift */; };
+		9AF9BE15238D4E3C002A4B9D /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9BE14238D4E3C002A4B9D /* CodeView.swift */; };
+		9AF9BE17238D4F5D002A4B9D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9BE16238D4F5D002A4B9D /* Home.swift */; };
+		9AF9BE19238D4FCF002A4B9D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9BE18238D4FCF002A4B9D /* HomeViewController.swift */; };
+		9AF9BE1C238D6251002A4B9D /* Uicolor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9BE1B238D6251002A4B9D /* Uicolor+AppColor.swift */; };
+		9AF9BE1E238D62D3002A4B9D /* UIColor+ExtensionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9BE1D238D62D3002A4B9D /* UIColor+ExtensionInit.swift */; };
 		9CAED8942BE8188E5279DB4E /* libPods-Chuck-Norris-facts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499BE3D7A68501AE168B196F /* libPods-Chuck-Norris-facts.a */; };
 		ACBE86A0BD1B161F1CC19851 /* libPods-Chuck-Norris-factsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3307C8AAE7D301B4E8CB70E9 /* libPods-Chuck-Norris-factsTests.a */; };
 /* End PBXBuildFile section */
@@ -49,8 +52,6 @@
 		9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck-Norris-facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9A6DBD9D238CA3DE006D7805 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A6DBDA0238CA3DE006D7805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A6DBDA5238CA3E0006D7805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6DBDA7238CA3E0006D7805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +61,11 @@
 		9A6DBDB7238CA3E0006D7805 /* Chuck-Norris-factsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chuck-Norris-factsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBDBB238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chuck_Norris_factsUITests.swift; sourceTree = "<group>"; };
 		9A6DBDBD238CA3E0006D7805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AF9BE14238D4E3C002A4B9D /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		9AF9BE16238D4F5D002A4B9D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		9AF9BE18238D4FCF002A4B9D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9AF9BE1B238D6251002A4B9D /* Uicolor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uicolor+AppColor.swift"; sourceTree = "<group>"; };
+		9AF9BE1D238D62D3002A4B9D /* UIColor+ExtensionInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ExtensionInit.swift"; sourceTree = "<group>"; };
 		D1F1895B7C9CFC3E4D0F6A7E /* libPods-Chuck-Norris-factsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chuck-Norris-factsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,10 +132,13 @@
 		9A6DBD98238CA3DE006D7805 /* Chuck-Norris-facts */ = {
 			isa = PBXGroup;
 			children = (
+				9AF9BE1A238D51F9002A4B9D /* Extension */,
+				9AF9BE13238D4DD3002A4B9D /* Protocol */,
+				9AF9BE10238D4C75002A4B9D /* Model */,
+				9AF9BE11238D4C7D002A4B9D /* View */,
+				9AF9BE12238D4C84002A4B9D /* Controller */,
 				9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */,
 				9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */,
-				9A6DBD9D238CA3DE006D7805 /* ViewController.swift */,
-				9A6DBD9F238CA3DE006D7805 /* Main.storyboard */,
 				9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */,
 				9A6DBDA4238CA3E0006D7805 /* LaunchScreen.storyboard */,
 				9A6DBDA7238CA3E0006D7805 /* Info.plist */,
@@ -153,6 +162,46 @@
 				9A6DBDBD238CA3E0006D7805 /* Info.plist */,
 			);
 			path = "Chuck-Norris-factsUITests";
+			sourceTree = "<group>";
+		};
+		9AF9BE10238D4C75002A4B9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AF9BE11238D4C7D002A4B9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9BE16238D4F5D002A4B9D /* Home.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9AF9BE12238D4C84002A4B9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9BE18238D4FCF002A4B9D /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AF9BE13238D4DD3002A4B9D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9BE14238D4E3C002A4B9D /* CodeView.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9AF9BE1A238D51F9002A4B9D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9BE1B238D6251002A4B9D /* Uicolor+AppColor.swift */,
+				9AF9BE1D238D62D3002A4B9D /* UIColor+ExtensionInit.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F4BC3EDB4B15C894F28E4B0A /* Pods */ = {
@@ -277,7 +326,6 @@
 			files = (
 				9A6DBDA6238CA3E0006D7805 /* LaunchScreen.storyboard in Resources */,
 				9A6DBDA3238CA3E0006D7805 /* Assets.xcassets in Resources */,
-				9A6DBDA1238CA3DE006D7805 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A6DBD9E238CA3DE006D7805 /* ViewController.swift in Sources */,
 				9A6DBD9A238CA3DE006D7805 /* AppDelegate.swift in Sources */,
+				9AF9BE17238D4F5D002A4B9D /* Home.swift in Sources */,
 				9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */,
+				9AF9BE1C238D6251002A4B9D /* Uicolor+AppColor.swift in Sources */,
+				9AF9BE15238D4E3C002A4B9D /* CodeView.swift in Sources */,
+				9AF9BE19238D4FCF002A4B9D /* HomeViewController.swift in Sources */,
+				9AF9BE1E238D62D3002A4B9D /* UIColor+ExtensionInit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,14 +461,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9A6DBD9F238CA3DE006D7805 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A6DBDA0238CA3DE006D7805 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9A6DBDA4238CA3E0006D7805 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

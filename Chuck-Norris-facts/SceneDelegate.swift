@@ -17,9 +17,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+       guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        setupNavigation()
+        let navigation = UINavigationController(rootViewController: HomeViewController())
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
     }
-
+    
+    private func setupNavigation() {
+           let navBarAppearance = UINavigationBarAppearance()
+           navBarAppearance.configureWithOpaqueBackground()
+           navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.titleNavBarColor]
+           navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.titleNavBarColor]
+           navBarAppearance.backgroundColor = .navBarColor
+           UINavigationBar.appearance().standardAppearance = navBarAppearance
+           UINavigationBar.appearance().compactAppearance = navBarAppearance
+           UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+            
+           UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+       }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

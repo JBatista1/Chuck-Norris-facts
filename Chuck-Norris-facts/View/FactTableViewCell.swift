@@ -11,6 +11,7 @@ import UIKit
 class FactTableViewCell: UITableViewCell {
     
     let sharingIcon = UIImage(named: "sharing")
+    let sharingIconClicked = UIImage(named: "sharingClicked")
     
     //MARK: - Properties
     
@@ -18,19 +19,23 @@ class FactTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
-    lazy var categoryFact: UILabel = {
+    lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .categoryColor
         label.text = "Tecnology".uppercased()
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.makeRoundBorder(withCornerRadius: 12.5)
         return label
     }()
     
-    lazy var sharing : UIButton = {
+    lazy var sharingButton : UIButton = {
         let button = UIButton()
         button.setImage(self.sharingIcon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
@@ -38,9 +43,12 @@ class FactTableViewCell: UITableViewCell {
         return button
     }()
     
-    lazy var cardViewFact : UIView = {
+    lazy var cardView : UIView = {
+        let offset = CGSize(width: 0, height: 0)
         let view = UIView()
         view.backgroundColor = .white
+    
+        view.setShadowAndCornerRadius(withColor: .black, Offset: offset, Opacity: 0.3, Radius: 3, andCornerRadius: 20)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -52,6 +60,8 @@ class FactTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         setupViews()
         setupConstraints()
+        self.backgroundColor = .white
+        
     }
     
     required init?(coder: NSCoder) {
@@ -63,40 +73,49 @@ class FactTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    //    override func setSelected(_ selected: Bool, animated: Bool) {
-    //        super.setSelected(selected, animated: animated)
-    //
-    //        // Configure the view for the selected state
-    //    }
-    
 }
 extension FactTableViewCell: CodeView{
     func setupViews() {
-        cardViewFact.addSubview(factLabel)
-        cardViewFact.addSubview(categoryFact)
-        addSubview(cardViewFact)
+        
+        addSubview(cardView)
+        
+        cardView.addSubview(factLabel)
+        cardView.addSubview(categoryLabel)
+        cardView.addSubview(sharingButton)
+
+        
         
     }
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            factLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            factLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            factLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
-            factLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22)
+            factLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
+            factLabel.bottomAnchor.constraint(equalTo: categoryLabel.topAnchor, constant: -20),
+            factLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 20),
+            factLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -20)
         ])
         
         NSLayoutConstraint.activate([
-            categoryFact.topAnchor.constraint(equalTo: factLabel.bottomAnchor, constant: 20),
-            cardViewFact.leadingAnchor.constraint(equalTo: factLabel.leadingAnchor, constant: 0),
-            categoryFact.heightAnchor.constraint(equalToConstant: 20),
-            categoryFact.widthAnchor.constraint(equalToConstant: 120),
+            categoryLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20),
+            categoryLabel.leadingAnchor.constraint(equalTo: factLabel.leadingAnchor, constant: -5),
+            categoryLabel.heightAnchor.constraint(equalToConstant: 25),
+            categoryLabel.widthAnchor.constraint(equalToConstant: 120),
+        ])
+//
+        NSLayoutConstraint.activate([
+            sharingButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20),
+            sharingButton.trailingAnchor.constraint(equalTo: factLabel.trailingAnchor, constant: -10),
+            sharingButton.heightAnchor.constraint(equalToConstant: 25),
+            sharingButton.widthAnchor.constraint(equalToConstant: 25)
+
         ])
         NSLayoutConstraint.activate([
-            cardViewFact.topAnchor.constraint(equalTo: factLabel.topAnchor, constant: 20),
-            cardViewFact.bottomAnchor.constraint(equalTo: categoryFact.bottomAnchor, constant: 20),
-            cardViewFact.leadingAnchor.constraint(equalTo: factLabel.leadingAnchor, constant: 20),
-            cardViewFact.trailingAnchor.constraint(equalTo: factLabel.trailingAnchor, constant: 20)
+            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+          
+        
         ])
     }
     

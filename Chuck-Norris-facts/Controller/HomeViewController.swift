@@ -49,8 +49,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! FactTableViewCell
-        cell.factLabel.text = " sdhkjlhfdkjafjdafkdafbdafdklhsafdklshafdhsaklfhdsklafhdkjshafkjdhskafhdsfadhskahfdkshakfhdskahfdkshafkldhsaklfhdkshfkdshfkdhskhfdkshfkhdksjhfkjdshafkldhakfhkdlahfkdhsakjfhdkjahfkjldhkjafhdkahfldksahfkjdhfkjdhkjlfhda"
+        cell.factLabel.text = "Chuck Noris, Jesus, and Barack Obama were standing by a lake. Jesus walked out on the water and was shortly followed by Chuck. Obama tried to follow, but fell in the water. After muck kicking and splashing Jesus said. Do you think we should tell him about the “stepping stone”? Chuck then said: “What stepping stone?"
+        cell.sharingButton.addTarget(self, action: #selector(shraing), for: .touchDown)
         return cell
+    }
+    @objc func shraing() {
+        print("Existo")
     }
     
     

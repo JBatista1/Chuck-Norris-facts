@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		77F6928FDD5DE8FF41F5FF2D /* libPods-Chuck-Norris-factsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1895B7C9CFC3E4D0F6A7E /* libPods-Chuck-Norris-factsUITests.a */; };
 		9A529541238DB3950059EB62 /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A529540238DB3950059EB62 /* FactTableViewCell.swift */; };
+		9A549AD9238EF6A500F3CF8C /* UIView+DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */; };
 		9A6DBD9A238CA3DE006D7805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */; };
 		9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */; };
 		9A6DBDA3238CA3E0006D7805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		584D68F2BF7DD2286D6FC0B7 /* Pods-Chuck-Norris-facts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck-Norris-facts.debug.xcconfig"; path = "Target Support Files/Pods-Chuck-Norris-facts/Pods-Chuck-Norris-facts.debug.xcconfig"; sourceTree = "<group>"; };
 		9A37519A9FBD4CEEDE73CE22 /* Pods-Chuck-Norris-facts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck-Norris-facts.release.xcconfig"; path = "Target Support Files/Pods-Chuck-Norris-facts/Pods-Chuck-Norris-facts.release.xcconfig"; sourceTree = "<group>"; };
 		9A529540238DB3950059EB62 /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
+		9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DesignView.swift"; sourceTree = "<group>"; };
 		9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck-Norris-facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				9AF9BE1B238D6251002A4B9D /* Uicolor+AppColor.swift */,
 				9AF9BE1D238D62D3002A4B9D /* UIColor+ExtensionInit.swift */,
+				9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				9AF9BE17238D4F5D002A4B9D /* Home.swift in Sources */,
 				9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */,
 				9A529541238DB3950059EB62 /* FactTableViewCell.swift in Sources */,
+				9A549AD9238EF6A500F3CF8C /* UIView+DesignView.swift in Sources */,
 				9AF9BE1C238D6251002A4B9D /* Uicolor+AppColor.swift in Sources */,
 				9AF9BE15238D4E3C002A4B9D /* CodeView.swift in Sources */,
 				9AF9BE19238D4FCF002A4B9D /* HomeViewController.swift in Sources */,

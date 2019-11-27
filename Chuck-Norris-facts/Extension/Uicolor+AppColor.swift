@@ -8,6 +8,7 @@
 
 import UIKit
 extension UIColor {
+    public static var categoryColor = UIColor(red: 72, green: 162, blue: 248)
     public static var titleNavBarColor: UIColor {
         guard let color = UIColor(named: "titleNavBarColor") else {
             return .black

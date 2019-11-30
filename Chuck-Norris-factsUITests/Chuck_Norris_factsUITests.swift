@@ -7,8 +7,8 @@
 //
 
 import XCTest
-
-class Chuck_Norris_factsUITests: XCTestCase {
+import FBSnapshotTestCase
+class Chuck_Norris_factsUITests: FBSnapshotTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

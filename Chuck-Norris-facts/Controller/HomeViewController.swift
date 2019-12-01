@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RxSwift
 class HomeViewController: UIViewController {
     fileprivate let cellId = "id"
     let customView = Home()
@@ -21,11 +21,14 @@ class HomeViewController: UIViewController {
         customView.factsTableView.separatorStyle = .none
         customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         setupNavigation()
+        
     }
     
     override func loadView() {
+        super.loadView()
         view = customView
     }
+  
     
     // MARK: - Navigation
     private func setupNavigation() {

@@ -13,6 +13,7 @@ class Home: UIView {
     // MARK: - Properties
     lazy var factsTableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

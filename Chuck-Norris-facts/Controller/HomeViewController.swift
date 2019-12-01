@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         customView.factsTableView.delegate = self
         customView.factsTableView.dataSource = self
-        customView.factsTableView.separatorStyle = .none
+      
         customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         setupNavigation()
         

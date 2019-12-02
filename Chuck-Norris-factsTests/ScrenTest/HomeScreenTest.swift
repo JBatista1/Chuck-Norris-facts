@@ -18,8 +18,10 @@ class HomeScreenTest: QuickSpec,ViewForTest {
     override func spec() {
         describe("in some context") {
             it("has valid snapshot") {
-                let view = self.createViewForTest()
-                expect(view) == snapshot("HomeScreen\(SizeViewTest.iPhone8.rawValue)")
+                let home = Home(frame: SizeViewTest.iPhone8.size)
+                let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: true, withview: home)
+                
+                expect(viewForTest) == snapshot("HomeScreen\(SizeViewTest.iPhone8.rawValue)")
             }
         }
     }

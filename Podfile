@@ -16,6 +16,9 @@ target 'Chuck-Norris-facts' do
 
   target 'Chuck-Norris-factsUITests' do
     inherit! :search_paths
+	pod 'Nimble'
+    pod 'Quick'
+    pod 'Nimble-Snapshots'
     pod 'RxSwift', '~> 5'
   end
 

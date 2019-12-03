@@ -22,4 +22,11 @@ extension UIColor {
         }
         return color
     }
+    public static var searchColor: UIColor {
+          guard let color = UIColor(named: "searchColor") else {
+              return UIColor(red: 238, green: 238, blue: 238)
+          }
+          return color
+      }
+
 }

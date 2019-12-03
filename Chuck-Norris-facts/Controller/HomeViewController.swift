@@ -41,7 +41,9 @@ class HomeViewController: UIViewController {
         
     }
     @objc func searchFact(_ sender: UIBarButtonItem) {
-        print("Clicked")
+        let search = SearchFactViewController()
+        search.modalPresentationStyle = .automatic
+        present(search, animated: true, completion: nil)
     }
 }
 

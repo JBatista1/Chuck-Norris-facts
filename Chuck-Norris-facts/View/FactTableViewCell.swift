@@ -19,6 +19,7 @@ class FactTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.textColor = .textColor
         label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
@@ -46,7 +47,7 @@ class FactTableViewCell: UITableViewCell {
     lazy var cardView : UIView = {
         let offset = CGSize(width: 0, height: 0)
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .cardViewColor
     
         view.setShadowAndCornerRadius(withColor: .black, Offset: offset, Opacity: 0.3, Radius: 3, andCornerRadius: 20)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +61,7 @@ class FactTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         setupViews()
         setupConstraints()
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         
     }
     

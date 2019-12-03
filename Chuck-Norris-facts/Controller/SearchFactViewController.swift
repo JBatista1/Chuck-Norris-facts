@@ -9,14 +9,16 @@
 import UIKit
 
 class SearchFactViewController: UIViewController {
- let customView = SearchFact()
+    let customView = SearchFact()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
         // Do any additional setup after loading the view.
     }
     override func loadView() {
+       
         super.loadView()
         view = customView
         

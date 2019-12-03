@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     }
     @objc func searchFact(_ sender: UIBarButtonItem) {
         let search = SearchFactViewController()
-        search.modalPresentationStyle = .automatic
+        search.modalPresentationStyle = .overCurrentContext
         present(search, animated: true, completion: nil)
     }
 }

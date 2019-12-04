@@ -10,22 +10,21 @@ import UIKit
 import RxSwift
 class HomeViewController: UIViewController {
     fileprivate let cellId = "id"
-    let customView = Home()
+    private let customView = Home()
     private var addBarButtonItem: UIBarButtonItem?
+    private let disposeBag = DisposeBag()
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.factsTableView.delegate = self
         customView.factsTableView.dataSource = self
-      
         customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         setupNavigation()
         
     }
     
     override func loadView() {
-        super.loadView()
         view = customView
     }
   
@@ -44,7 +43,13 @@ class HomeViewController: UIViewController {
         let search = SearchFactViewController()
         search.modalPresentationStyle = .overCurrentContext
         present(search, animated: true, completion: nil)
+        search.textForSearch.subscribe(onNext: {[weak self] searchFact in
+                   print(searchFact)
+            }).disposed(by: disposeBag)
+        
     }
+    
+   
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {

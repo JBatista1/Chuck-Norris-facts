@@ -11,41 +11,37 @@ extension UIColor {
     public static var categoryColor = UIColor(red: 72, green: 162, blue: 248)
     
     public static var titleNavBarColor: UIColor {
-        guard let color = UIColor(named: "titleNavBarColor") else {
-            return .black
-        }
+        let color = UIColor(named: "titleNavBarColor") ?? .black
         return color
     }
     public static var cardViewColor: UIColor {
-          guard let color = UIColor(named: "cardViewColor") else {
-              return .black
-          }
-          return color
-      }
+        let color = UIColor(named: "cardViewColor") ?? .black
+        return color
+    }
     public static var navBarColor: UIColor {
-        guard let color = UIColor(named: "navBarColor") else {
-            return UIColor(red: 128, green: 128, blue: 200)
-        }
+        let color = UIColor(named: "navBarColor") ?? UIColor(red: 128, green: 128, blue: 200)
         return color
     }
     public static var searchColor: UIColor {
-        guard let color = UIColor(named: "searchColor") else {
-            return UIColor(red: 238, green: 238, blue: 238)
-        }
+        let color = UIColor(named: "searchColor") ?? UIColor(red: 238, green: 238, blue: 238)
         return color
     }
     public static var textColor: UIColor {
-        guard let color = UIColor(named: "textColor") else {
-            return UIColor(red: 0, green: 0, blue: 0)
-        }
+        let color = UIColor(named: "textColor") ?? UIColor(red: 0, green: 0, blue: 0)
         return color
     }
     public static var buttonColor: UIColor {
-        let color = UIColor(named: "textColor") ?? UIColor(red: 0, green: 0, blue: 0)
-            
-        
+        let color = UIColor(named: "buttonColor") ?? UIColor(red: 0, green: 0, blue: 0)
         return color
     }
+    public static var textButtonColor: UIColor {
+           let color = UIColor(named: "textButtonColor") ?? .black
+           return color
+       }
+    public static var borderButtonColor: UIColor {
+              let color = UIColor(named: "borderButton") ?? .black
+              return color
+          }
     
     
 }

@@ -31,7 +31,10 @@ class SearchFact: UIView {
     let buttonSearch : UIButton = {
         let button = UIButton()
         button.setTitle("Searching", for: .normal)
-        button.backgroundColor = .blue
+        button.setTitleColor(.textButtonColor, for: .normal)
+        button.backgroundColor = .buttonColor
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.borderButtonColor.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.makeRoundBorder(withCornerRadius: 20)
         return button
@@ -45,9 +48,11 @@ class SearchFact: UIView {
     }()
     
     let viewModal: UIView = {
+        let offset = CGSize(width: 0, height: 0)
         let view = UIView()
         view.makeRoundBorder(withCornerRadius: 20)
-        view.backgroundColor = .systemBackground
+        view.setShadowAndCornerRadius(withColor: .black, Offset: offset, Opacity: 0.6, Radius: 20, andCornerRadius: 20)
+        view.backgroundColor = .navBarColor
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .searchColor
         return view
@@ -66,7 +71,6 @@ class SearchFact: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(white: 0, alpha: 0.2)
         setupViews()
         setupConstraints()
     }

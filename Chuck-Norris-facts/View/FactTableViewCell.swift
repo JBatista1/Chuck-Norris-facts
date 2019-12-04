@@ -39,6 +39,7 @@ class FactTableViewCell: UITableViewCell {
     lazy var sharingButton : UIButton = {
         let button = UIButton()
         button.setImage(self.sharingIcon, for: .normal)
+        button.setImage(self.sharingIconClicked, for: .highlighted)
         button.imageView?.contentMode = .scaleAspectFill
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

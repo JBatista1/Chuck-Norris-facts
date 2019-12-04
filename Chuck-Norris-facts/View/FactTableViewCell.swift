@@ -85,8 +85,6 @@ extension FactTableViewCell: CodeView{
         cardView.addSubview(categoryLabel)
         cardView.addSubview(sharingButton)
 
-        
-        
     }
     func setupConstraints() {
         

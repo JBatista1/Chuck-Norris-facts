@@ -28,7 +28,6 @@ class HomeViewController: UIViewController {
         view = customView
     }
   
-    
     // MARK: - Navigation
     private func setupNavigation() {
         title = "Chuck Norris Facts"
@@ -41,7 +40,8 @@ class HomeViewController: UIViewController {
     }
     @objc func searchFact(_ sender: UIBarButtonItem) {
         let search = SearchFactViewController()
-        search.modalPresentationStyle = .overCurrentContext
+        search.modalTransitionStyle = .crossDissolve
+        search.modalPresentationStyle = .overFullScreen
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
                    print(searchFact)

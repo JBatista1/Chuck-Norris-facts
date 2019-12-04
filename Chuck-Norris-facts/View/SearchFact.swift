@@ -50,18 +50,16 @@ class SearchFact: UIView {
     let viewModal: UIView = {
         let offset = CGSize(width: 0, height: 0)
         let view = UIView()
-        view.makeRoundBorder(withCornerRadius: 20)
-        view.setShadowAndCornerRadius(withColor: .black, Offset: offset, Opacity: 0.6, Radius: 20, andCornerRadius: 20)
-        view.backgroundColor = .navBarColor
+        view.setShadowAndCornerRadius(withColor: .black, Offset: offset, Opacity: 0.2, Radius: 20, andCornerRadius: 20)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .searchColor
+        view.backgroundColor = .cardViewColor
         return view
     }()
     
     let viewSearch: UIView = {
         let view = UIView()
         view.makeRoundBorder(withCornerRadius: 20)
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .searchColor
         view.translatesAutoresizingMaskIntoConstraints = false
         view.makeRoundBorder(withCornerRadius: 20)
         return view
@@ -69,8 +67,10 @@ class SearchFact: UIView {
     
     
     // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .init(white: 0, alpha: 0.4)
         setupViews()
         setupConstraints()
     }
@@ -97,7 +97,7 @@ extension SearchFact: CodeView {
         NSLayoutConstraint.activate([
             viewModal.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             viewModal.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            viewModal.heightAnchor.constraint(equalToConstant: 240),
+            viewModal.bottomAnchor.constraint(equalTo: buttonSearch.bottomAnchor, constant: 16),
             viewModal.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
             
         ])
@@ -106,11 +106,11 @@ extension SearchFact: CodeView {
             viewSearch.trailingAnchor.constraint(equalTo: viewModal.trailingAnchor, constant: -15),
             viewSearch.bottomAnchor.constraint(equalTo: buttonSearch.topAnchor, constant: -15),
             viewSearch.heightAnchor.constraint(equalToConstant: 40)
-            
+
         ])
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: viewModal.topAnchor, constant: 30),
-            title.bottomAnchor.constraint(equalTo: viewSearch.topAnchor, constant: -20),
+            title.topAnchor.constraint(equalTo: viewModal.topAnchor, constant: 40),
+            title.bottomAnchor.constraint(equalTo: viewSearch.topAnchor, constant: -30),
             title.leadingAnchor.constraint(equalTo: viewModal.leadingAnchor, constant: 35),
             title.trailingAnchor.constraint(equalTo: viewModal.trailingAnchor, constant: -35)
         ])
@@ -128,14 +128,14 @@ extension SearchFact: CodeView {
 
         ])
         NSLayoutConstraint.activate([
-            buttonSearch.bottomAnchor.constraint(equalTo: viewModal.bottomAnchor, constant: -16),
+//            buttonSearch.bottomAnchor.constraint(equalTo: viewModal.bottomAnchor, constant: -16),
             buttonSearch.trailingAnchor.constraint(equalTo: viewSearch.trailingAnchor, constant: 0),
             buttonSearch.leadingAnchor.constraint(equalTo: viewSearch.leadingAnchor, constant: 0),
             buttonSearch.heightAnchor.constraint(equalToConstant: 40)
-        
+
         ])
-        
+
     }
-    
+
     
 }

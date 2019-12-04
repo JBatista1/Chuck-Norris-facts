@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 class SearchFactViewController: UIViewController {
-    private let customView = SearchFact()
+    private let customView = SearchFact(frame: .zero)
     var textForSearch = PublishSubject<String>()
     
     override func viewDidLoad() {
@@ -19,8 +19,13 @@ class SearchFactViewController: UIViewController {
     // MARK: - Init
     override func loadView() {
         view = customView
+      
         setupInitial()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        customView.frame.size = size
+     }
     
     private func setupInitial(){
         customView.buttonCancel.addTarget(self, action: #selector(closeSearch), for: .touchUpInside)
@@ -46,7 +51,7 @@ class SearchFactViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if customView.frame.origin.y == 0 {
-                customView.frame.origin.y -= keyboardSize.height/2
+                customView.frame.origin.y -= keyboardSize.height/1.8
             }
         }
     }

@@ -35,13 +35,14 @@ extension UIColor {
         return color
     }
     public static var textButtonColor: UIColor {
-           let color = UIColor(named: "textButtonColor") ?? .black
-           return color
-       }
+        let color = UIColor(named: "textButtonColor") ?? .black
+        return color
+    }
     public static var borderButtonColor: UIColor {
-              let color = UIColor(named: "borderButton") ?? .black
-              return color
-          }
+        let color = UIColor(named: "borderButton") ?? .black
+        return color
+    }
+  
     
     
 }

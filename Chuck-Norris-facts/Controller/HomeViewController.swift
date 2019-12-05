@@ -13,7 +13,16 @@ class HomeViewController: UIViewController {
     private let customView = Home()
     private var addBarButtonItem: UIBarButtonItem?
     private let disposeBag = DisposeBag()
-    
+    private let sessionProvider = URLSessionProvider()
+    private var seachText = ""
+    private var facts = [Fact]() {
+        didSet {
+            DispatchQueue.main.async {
+//                self.customView.factsTableView.reloadData()
+                self.customView.factsTableView.reloadSections([0], with: .fade)
+            }
+        }
+    }
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +36,7 @@ class HomeViewController: UIViewController {
     override func loadView() {
         view = customView
     }
-  
+    
     // MARK: - Navigation
     private func setupNavigation() {
         title = "Chuck Norris Facts"
@@ -44,22 +53,36 @@ class HomeViewController: UIViewController {
         search.modalPresentationStyle = .overFullScreen
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
-                   print(searchFact)
-            }).disposed(by: disposeBag)
+            self?.seachText = searchFact
+            self?.getFact()
+            
+            
+        }).disposed(by: disposeBag)
         
     }
+    private func getFact() {
+        sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
+            switch response {
+            case let .success(result):
+                self.facts = result.result
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
     
-   
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return facts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! FactTableViewCell
-        cell.factLabel.text = "Chuck Noris, Jesus, and Barack Obama were standing by a lake. Jesus walked out on the water and was shortly followed by Chuck. Obama tried to follow, but fell in the water. After muck kicking and splashing Jesus said. Do you think we should tell him about the “stepping stone”? Chuck then said: “What stepping stone?"
+        cell.factLabel.text = facts[indexPath.row].value
+        cell.categoryLabel.text = "TESTE"
         cell.sharingButton.addTarget(self, action: #selector(shraing), for: .touchDown)
         return cell
     }

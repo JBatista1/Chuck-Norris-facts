@@ -23,23 +23,30 @@ final class URLSessionProvider: ProviderProtocol {
             let httpResponse = response as? HTTPURLResponse
             self?.handleDataResponse(data: data, response: httpResponse, error: error, completion: completion)
         })
+       
         task.resume()
     }
     
     private func handleDataResponse<T: Decodable>(data: Data?, response: HTTPURLResponse?, error: Error?, completion: (NetworkResponse<T>) -> ()) {
-        guard error == nil else { return completion(.failure(.unknown)) }
+        guard error == nil else {  return completion(.failure(.unknown)) }
         guard let response = response else { return completion(.failure(.noJSONData))}
         
         guard let dataString = String(bytes: data!, encoding: .utf8) else { return }
         switch response.statusCode {
         case 200...299:
-            guard let data = data, let model = try? JSONDecoder().decode(T.self, from: data) else { return completion(.failure(.unknown)) }
-            completion(.success(model))
+            guard let data = data else {
+                print("error")
+                return completion(.failure(.unknown)) }
+            if let model = try? JSONDecoder().decode(T.self, from: data) {
+                
+                completion(.success(model))
+            }
         case 400...499:
             completion(.failure(NetworkError.clientError(statusCode: response.statusCode, dataResponse: dataString)))
         case 500...599:
              completion(.failure(NetworkError.serverError(statusCode: response.statusCode, dataResponse: dataString)))
         default:
+           
             completion(.failure(.unknown))
         }
     }

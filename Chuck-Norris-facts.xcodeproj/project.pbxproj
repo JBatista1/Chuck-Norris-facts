@@ -25,6 +25,7 @@
 		9A632B0723996BF200C777E2 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A632B0623996BF200C777E2 /* URLSessionDataTaskProtocol.swift */; };
 		9A632B092399799300C777E2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A632B082399799300C777E2 /* NetworkService.swift */; };
 		9A632B0B23997B4E00C777E2 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A632B0A23997B4E00C777E2 /* Fact.swift */; };
+		9A632B0D23999B0900C777E2 /* FactDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A632B0C23999B0900C777E2 /* FactDTO.swift */; };
 		9A6DBD9A238CA3DE006D7805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */; };
 		9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */; };
 		9A6DBDA3238CA3E0006D7805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		9A632B0623996BF200C777E2 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		9A632B082399799300C777E2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9A632B0A23997B4E00C777E2 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fact.swift; path = "Chuck-Norris-facts/NetworkLayer/Fact.swift"; sourceTree = SOURCE_ROOT; };
+		9A632B0C23999B0900C777E2 /* FactDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FactDTO.swift; path = "Chuck-Norris-facts/NetworkLayer/FactDTO.swift"; sourceTree = SOURCE_ROOT; };
 		9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck-Norris-facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				9A632B0A23997B4E00C777E2 /* Fact.swift */,
+				9A632B0C23999B0900C777E2 /* FactDTO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				9A5843182398366100C318FF /* URLComponents.swift in Sources */,
 				9A632B0B23997B4E00C777E2 /* Fact.swift in Sources */,
 				9AF9BE1C238D6251002A4B9D /* Uicolor+AppColor.swift in Sources */,
+				9A632B0D23999B0900C777E2 /* FactDTO.swift in Sources */,
 				9AF9BE15238D4E3C002A4B9D /* CodeView.swift in Sources */,
 				9A632B0323996AB200C777E2 /* URLSessionProvider.swift in Sources */,
 				9AF9BE19238D4FCF002A4B9D /* HomeViewController.swift in Sources */,

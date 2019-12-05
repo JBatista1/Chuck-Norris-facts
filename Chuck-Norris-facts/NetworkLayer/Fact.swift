@@ -8,11 +8,11 @@
 
 import Foundation
 struct Fact: Codable {
-    var fact: String
-    var category: String
+    var value: String
+    var categories: [String]
     
-    init(fact: String, category: String) {
-        self.fact = fact
-        self.category = category
+    init(value: String, categories: [String]) {
+        self.value = value
+        self.categories = categories
     }
 }

@@ -23,10 +23,6 @@ class SearchFactViewController: UIViewController {
         setupInitial()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        customView.frame.size = size
-     }
-    
     private func setupInitial(){
         customView.buttonCancel.addTarget(self, action: #selector(closeSearch), for: .touchUpInside)
         customView.buttonSearch.addTarget(self, action: #selector(searchFact), for: .touchUpInside)

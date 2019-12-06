@@ -7,8 +7,8 @@
 //
 
 import Foundation
-///function create for test mock
-protocol URLSessionDataTaskProtocol {
+
+protocol URLSessionDataTaskProtocol: class {
     func resume()
 }
-extension URLSessionDataTask: URLSessionDataTaskProtocol { }
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}

@@ -10,20 +10,30 @@ import UIKit
 import RxSwift
 class HomeViewController: UIViewController {
     fileprivate let cellId = "id"
-    private let customView = Home()
+    private let customView: Home
     private var addBarButtonItem: UIBarButtonItem?
     private let disposeBag = DisposeBag()
-    private let sessionProvider = URLSessionProvider()
+    private var sessionProvider : ProviderProtocol
     private var seachText = ""
     private var facts = [Fact]() {
         didSet {
             DispatchQueue.main.async {
-//                self.customView.factsTableView.reloadData()
-                self.customView.factsTableView.reloadSections([0], with: .fade)
+                self.customView.factsTableView.reloadSections([0], with: .automatic)
             }
         }
     }
     // MARK: - Init
+    init(sessionProvider: ProviderProtocol) {
+        self.sessionProvider = sessionProvider
+        self.customView = Home()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.factsTableView.delegate = self
@@ -44,9 +54,8 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = addBarButtonItem
         navigationController?.view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
     }
+    
     @objc func searchFact(_ sender: UIBarButtonItem) {
         let search = SearchFactViewController()
         search.modalTransitionStyle = .crossDissolve
@@ -55,8 +64,6 @@ class HomeViewController: UIViewController {
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
             self?.seachText = searchFact
             self?.getFact()
-            
-            
         }).disposed(by: disposeBag)
         
     }

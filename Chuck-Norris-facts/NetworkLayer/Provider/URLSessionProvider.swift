@@ -31,14 +31,15 @@ final class URLSessionProvider: ProviderProtocol {
         guard error == nil else {  return completion(.failure(.unknown)) }
         guard let response = response else { return completion(.failure(.noJSONData))}
         
-        guard let dataString = String(bytes: data!, encoding: .utf8) else { return }
+        guard let result = data else {
+            return completion(.failure(.unknown))
+        }
+        
+        guard let dataString = String(bytes: result, encoding: .utf8) else { return  }
+        
         switch response.statusCode {
         case 200...299:
-            guard let data = data else {
-                print("error")
-                return completion(.failure(.unknown)) }
-            if let model = try? JSONDecoder().decode(T.self, from: data) {
-                
+            if let model = try? JSONDecoder().decode(T.self, from: result) {
                 completion(.success(model))
             }
         case 400...499:

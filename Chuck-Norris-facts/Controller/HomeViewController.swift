@@ -10,11 +10,15 @@ import UIKit
 import RxSwift
 class HomeViewController: UIViewController {
     fileprivate let cellId = "id"
+    
     private let customView: Home
-    private var addBarButtonItem: UIBarButtonItem?
+    
     private let disposeBag = DisposeBag()
+    private let network: Network
     private var sessionProvider : ProviderProtocol
     private var seachText = ""
+    private var alert: AlertsError?
+    
     private var facts = [Fact]() {
         didSet {
             DispatchQueue.main.async {
@@ -26,7 +30,10 @@ class HomeViewController: UIViewController {
     init(sessionProvider: ProviderProtocol) {
         self.sessionProvider = sessionProvider
         self.customView = Home()
+        self.network = Network()
         super.init(nibName: nil, bundle: nil)
+        self.alert = AlertsError(controller: self)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -36,6 +43,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkNetwork()
         customView.factsTableView.delegate = self
         customView.factsTableView.dataSource = self
         customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
@@ -49,8 +57,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Navigation
     private func setupNavigation() {
+        
         title = "Chuck Norris Facts"
-        addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
+        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
         navigationItem.rightBarButtonItem = addBarButtonItem
         navigationController?.view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -63,9 +72,18 @@ class HomeViewController: UIViewController {
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
             self?.seachText = searchFact
-            self?.getFact()
+            if (self?.checkNetwork())! {
+                self!.getFact()
+            }
         }).disposed(by: disposeBag)
         
+    }
+    func checkNetwork() -> Bool {
+        let connected = network.isconnected()
+        if !connected {
+            alert?.presentAlertError(error: .notNetWork)
+        }
+        return connected
     }
     private func getFact() {
         sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
@@ -73,8 +91,11 @@ class HomeViewController: UIViewController {
             case let .success(result):
                 self.facts = result.result
             case let .failure(error):
-                print(error)
+                
+                self.alert?.presentAlertError(error: .textLessThan3)
+                
             }
+            
         }
     }
     

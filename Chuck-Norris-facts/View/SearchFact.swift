@@ -26,6 +26,7 @@ class SearchFact: UIView {
         let textField = UITextField()
         textField.placeholder = "Searching..."
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.keyboardType = .asciiCapable
         return textField
     }()
     let buttonSearch : UIButton = {

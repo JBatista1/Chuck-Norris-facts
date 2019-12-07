@@ -11,6 +11,7 @@
 		2342559EC175B56E0225F6CB /* Pods_Chuck_Norris_facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3522636E8D1F74887D00B587 /* Pods_Chuck_Norris_facts.framework */; };
 		9A4A4EB6239B10950063CBAF /* Facts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A4EB5239B10950063CBAF /* Facts.json */; };
 		9A4A4EB7239B10950063CBAF /* Facts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A4A4EB5239B10950063CBAF /* Facts.json */; };
+		9A4A4EBD239B2AE70063CBAF /* AlertsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A4EBC239B2AE70063CBAF /* AlertsErrors.swift */; };
 		9A4AC267239A9101003CCF55 /* NetworkLayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4AC266239A9101003CCF55 /* NetworkLayerTest.swift */; };
 		9A529541238DB3950059EB62 /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A529540238DB3950059EB62 /* FactTableViewCell.swift */; };
 		9A549AD9238EF6A500F3CF8C /* UIView+DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */; };
@@ -39,6 +40,9 @@
 		9A6DBDA6238CA3E0006D7805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6DBDA4238CA3E0006D7805 /* LaunchScreen.storyboard */; };
 		9A6DBDB1238CA3E0006D7805 /* Chuck_Norris_factsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBDB0238CA3E0006D7805 /* Chuck_Norris_factsTests.swift */; };
 		9A6DBDBC238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DBDBB238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift */; };
+		9A768C3E239BDDC8008F895A /* TypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C3D239BDDC8008F895A /* TypeError.swift */; };
+		9A768C42239BE66A008F895A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C41239BE66A008F895A /* Network.swift */; };
+		9A768C45239C08B6008F895A /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C44239C08B6008F895A /* UIViewController+dismissKeyboard.swift */; };
 		9A806F8A23929CA900BD7B8F /* HomeScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A806F8923929CA900BD7B8F /* HomeScreenTest.swift */; };
 		9A8DEDEA2393F0F1000EA61B /* UIViewForSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DEDE92393F0F1000EA61B /* UIViewForSnapShot.swift */; };
 		9A8DEDEC2393FE2A000EA61B /* FactViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DEDEB2393FE2A000EA61B /* FactViewCellTest.swift */; };
@@ -81,6 +85,7 @@
 		595382D733E46B8CF38F70D2 /* Pods_Chuck_Norris_facts_Chuck_Norris_factsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chuck_Norris_facts_Chuck_Norris_factsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F08FF614184FB0CBA20F323 /* Pods-Chuck-Norris-facts-Chuck-Norris-factsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chuck-Norris-facts-Chuck-Norris-factsTests.release.xcconfig"; path = "Target Support Files/Pods-Chuck-Norris-facts-Chuck-Norris-factsTests/Pods-Chuck-Norris-facts-Chuck-Norris-factsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A4A4EB5239B10950063CBAF /* Facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Facts.json; sourceTree = "<group>"; };
+		9A4A4EBC239B2AE70063CBAF /* AlertsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsErrors.swift; sourceTree = "<group>"; };
 		9A4AC266239A9101003CCF55 /* NetworkLayerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerTest.swift; sourceTree = "<group>"; };
 		9A529540238DB3950059EB62 /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
 		9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DesignView.swift"; sourceTree = "<group>"; };
@@ -115,6 +120,9 @@
 		9A6DBDB7238CA3E0006D7805 /* Chuck-Norris-factsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chuck-Norris-factsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBDBB238CA3E0006D7805 /* Chuck_Norris_factsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chuck_Norris_factsUITests.swift; sourceTree = "<group>"; };
 		9A6DBDBD238CA3E0006D7805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A768C3D239BDDC8008F895A /* TypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeError.swift; sourceTree = "<group>"; };
+		9A768C41239BE66A008F895A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9A768C44239C08B6008F895A /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		9A806F8923929CA900BD7B8F /* HomeScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTest.swift; sourceTree = "<group>"; };
 		9A8DEDE92393F0F1000EA61B /* UIViewForSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewForSnapShot.swift; sourceTree = "<group>"; };
 		9A8DEDEB2393FE2A000EA61B /* FactViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactViewCellTest.swift; sourceTree = "<group>"; };
@@ -194,6 +202,7 @@
 				9A58430F239833A500C318FF /* Enuns */,
 				9A58430C2398335400C318FF /* Protocol */,
 				9A632B082399799300C777E2 /* NetworkService.swift */,
+				9A768C41239BE66A008F895A /* Network.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 			children = (
 				9A5EE4F4239A7FC9001AB998 /* FactDTO.swift */,
 				9A5EE4F2239A7F7C001AB998 /* Fact.swift */,
+				9A4A4EBC239B2AE70063CBAF /* AlertsErrors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,11 +294,12 @@
 			isa = PBXGroup;
 			children = (
 				9A58430B23982B9900C318FF /* NetworkLayer */,
+				9A768C3C239BDDB4008F895A /* Enum */,
 				9AF9BE1A238D51F9002A4B9D /* Extension */,
 				9AF9BE13238D4DD3002A4B9D /* Protocol */,
+				9A5EE4EF239A7F26001AB998 /* Model */,
 				9AF9BE11238D4C7D002A4B9D /* View */,
 				9AF9BE12238D4C84002A4B9D /* Controller */,
-				9A5EE4EF239A7F26001AB998 /* Model */,
 				9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */,
 				9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */,
 				9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */,
@@ -326,6 +337,14 @@
 				9A5EE4DF239A79C1001AB998 /* Mock */,
 			);
 			path = NetWorkLayerTest;
+			sourceTree = "<group>";
+		};
+		9A768C3C239BDDB4008F895A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9A768C3D239BDDC8008F895A /* TypeError.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		9A8DEDED23941CC5000EA61B /* Enum */ = {
@@ -390,6 +409,7 @@
 				9AF9BE1B238D6251002A4B9D /* Uicolor+AppColor.swift */,
 				9AF9BE1D238D62D3002A4B9D /* UIColor+ExtensionInit.swift */,
 				9A549AD8238EF6A500F3CF8C /* UIView+DesignView.swift */,
+				9A768C44239C08B6008F895A /* UIViewController+dismissKeyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -671,6 +691,7 @@
 				9AF9BE17238D4F5D002A4B9D /* Home.swift in Sources */,
 				9A58430E2398337000C318FF /* ServiceProtocol.swift in Sources */,
 				9A6DBD9C238CA3DE006D7805 /* SceneDelegate.swift in Sources */,
+				9A768C3E239BDDC8008F895A /* TypeError.swift in Sources */,
 				9A58431C239845E500C318FF /* NetworkResponse.swift in Sources */,
 				9A5843202398469A00C318FF /* ProviderProtocol.swift in Sources */,
 				9A529541238DB3950059EB62 /* FactTableViewCell.swift in Sources */,
@@ -684,12 +705,15 @@
 				9AF9BE19238D4FCF002A4B9D /* HomeViewController.swift in Sources */,
 				9A584311239833BA00C318FF /* HTTPMethod.swift in Sources */,
 				9AF9BE1E238D62D3002A4B9D /* UIColor+ExtensionInit.swift in Sources */,
+				9A768C42239BE66A008F895A /* Network.swift in Sources */,
 				9A632B0523996AFF00C777E2 /* URLSessionProtocol.swift in Sources */,
+				9A4A4EBD239B2AE70063CBAF /* AlertsErrors.swift in Sources */,
 				9A5843132398341100C318FF /* HTTPTask.swift in Sources */,
 				9A5EE4F3239A7F7C001AB998 /* Fact.swift in Sources */,
 				9A584315239834F800C318FF /* ParametersEncoding.swift in Sources */,
 				9A58431A2398449200C318FF /* URLRequest.swift in Sources */,
 				9AC43CF32395F1530099F575 /* SearchFactViewController.swift in Sources */,
+				9A768C45239C08B6008F895A /* UIViewController+dismissKeyboard.swift in Sources */,
 				9A58431E2398460B00C318FF /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,15 +11,20 @@ import RxSwift
 class SearchFactViewController: UIViewController {
     private let customView = SearchFact(frame: .zero)
     var textForSearch = PublishSubject<String>()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    private let network = Network()
+    private var alert: AlertsError!
     
     // MARK: - Init
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    
+    
     override func loadView() {
         view = customView
-      
         setupInitial()
     }
     
@@ -39,9 +44,27 @@ class SearchFactViewController: UIViewController {
     
     @objc func searchFact(){
         guard let searchFact = customView.search.text else {return}
-        textForSearch.onNext(searchFact)
-        dismiss(animated: true, completion: nil)
+        if noMistake(text: searchFact) {
+            textForSearch.onNext(searchFact)
+            dismiss(animated: true, completion: nil)
+        }
+            
+        
     }
+    func noMistake(text: String) -> Bool {
+        alert = AlertsError(controller: self)
+        var notError = true
+        if !network.isconnected(){
+            alert?.showAlertError(error: .notNetWork)
+            notError = false
+        }
+        if text.count < 3{
+            alert?.showAlertError(error: .textLessThan3)
+            notError = false
+        }
+        return notError
+    }
+    
     
     // MARK: - Move view to insert keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -58,6 +81,7 @@ class SearchFactViewController: UIViewController {
         }
     }
 }
+
 
 extension SearchFactViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

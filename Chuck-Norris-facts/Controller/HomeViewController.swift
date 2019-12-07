@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     private let customView: Home
     
     private let disposeBag = DisposeBag()
-    private let network: Network
     private var sessionProvider : ProviderProtocol
     private var seachText = ""
     private var alert: AlertsError?
@@ -30,7 +29,6 @@ class HomeViewController: UIViewController {
     init(sessionProvider: ProviderProtocol) {
         self.sessionProvider = sessionProvider
         self.customView = Home()
-        self.network = Network()
         super.init(nibName: nil, bundle: nil)
         self.alert = AlertsError(controller: self)
         
@@ -43,7 +41,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkNetwork()
         customView.factsTableView.delegate = self
         customView.factsTableView.dataSource = self
         customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
@@ -57,7 +54,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Navigation
     private func setupNavigation() {
-        
         title = "Chuck Norris Facts"
         let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
         navigationItem.rightBarButtonItem = addBarButtonItem
@@ -72,28 +68,18 @@ class HomeViewController: UIViewController {
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
             self?.seachText = searchFact
-            if (self?.checkNetwork())! {
-                self!.getFact()
-            }
+            self!.getFact()
         }).disposed(by: disposeBag)
         
     }
-    func checkNetwork() -> Bool {
-        let connected = network.isconnected()
-        if !connected {
-            alert?.presentAlertError(error: .notNetWork)
-        }
-        return connected
-    }
+    
     private func getFact() {
         sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
             switch response {
             case let .success(result):
                 self.facts = result.result
             case let .failure(error):
-                
-                self.alert?.presentAlertError(error: .textLessThan3)
-                
+                self.alert?.showAlertNetWorError(error: error)
             }
             
         }

@@ -11,5 +11,6 @@ import Foundation
 enum TypeError {
     case notNetWork
     case notConnectServe
+    case invalidSearch
     case textLessThan3
 }

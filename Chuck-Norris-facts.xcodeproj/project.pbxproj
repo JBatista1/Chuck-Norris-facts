@@ -43,6 +43,8 @@
 		9A768C3E239BDDC8008F895A /* TypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C3D239BDDC8008F895A /* TypeError.swift */; };
 		9A768C42239BE66A008F895A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C41239BE66A008F895A /* Network.swift */; };
 		9A768C45239C08B6008F895A /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A768C44239C08B6008F895A /* UIViewController+dismissKeyboard.swift */; };
+		9A7FD575239D1AD100EDBC8B /* ItemsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7FD574239D1AD100EDBC8B /* ItemsTableViewDatasource.swift */; };
+		9A7FD57A239D1B6F00EDBC8B /* FactDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7FD579239D1B6F00EDBC8B /* FactDatasource.swift */; };
 		9A806F8A23929CA900BD7B8F /* HomeScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A806F8923929CA900BD7B8F /* HomeScreenTest.swift */; };
 		9A8DEDEA2393F0F1000EA61B /* UIViewForSnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DEDE92393F0F1000EA61B /* UIViewForSnapShot.swift */; };
 		9A8DEDEC2393FE2A000EA61B /* FactViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DEDEB2393FE2A000EA61B /* FactViewCellTest.swift */; };
@@ -123,6 +125,8 @@
 		9A768C3D239BDDC8008F895A /* TypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeError.swift; sourceTree = "<group>"; };
 		9A768C41239BE66A008F895A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		9A768C44239C08B6008F895A /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
+		9A7FD574239D1AD100EDBC8B /* ItemsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDatasource.swift; sourceTree = "<group>"; };
+		9A7FD579239D1B6F00EDBC8B /* FactDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactDatasource.swift; sourceTree = "<group>"; };
 		9A806F8923929CA900BD7B8F /* HomeScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTest.swift; sourceTree = "<group>"; };
 		9A8DEDE92393F0F1000EA61B /* UIViewForSnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewForSnapShot.swift; sourceTree = "<group>"; };
 		9A8DEDEB2393FE2A000EA61B /* FactViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactViewCellTest.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 		9A6DBD98238CA3DE006D7805 /* Chuck-Norris-facts */ = {
 			isa = PBXGroup;
 			children = (
+				9A7FD573239D1A9800EDBC8B /* DataSource */,
 				9A58430B23982B9900C318FF /* NetworkLayer */,
 				9A768C3C239BDDB4008F895A /* Enum */,
 				9AF9BE1A238D51F9002A4B9D /* Extension */,
@@ -347,6 +352,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		9A7FD573239D1A9800EDBC8B /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				9A7FD579239D1B6F00EDBC8B /* FactDatasource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		9A8DEDED23941CC5000EA61B /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF9BE14238D4E3C002A4B9D /* CodeView.swift */,
+				9A7FD574239D1AD100EDBC8B /* ItemsTableViewDatasource.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -709,6 +723,8 @@
 				9A632B0523996AFF00C777E2 /* URLSessionProtocol.swift in Sources */,
 				9A4A4EBD239B2AE70063CBAF /* AlertsErrors.swift in Sources */,
 				9A5843132398341100C318FF /* HTTPTask.swift in Sources */,
+				9A7FD57A239D1B6F00EDBC8B /* FactDatasource.swift in Sources */,
+				9A7FD575239D1AD100EDBC8B /* ItemsTableViewDatasource.swift in Sources */,
 				9A5EE4F3239A7F7C001AB998 /* Fact.swift in Sources */,
 				9A584315239834F800C318FF /* ParametersEncoding.swift in Sources */,
 				9A58431A2398449200C318FF /* URLRequest.swift in Sources */,

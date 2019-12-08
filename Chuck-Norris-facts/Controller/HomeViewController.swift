@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 class HomeViewController: UIViewController {
-    fileprivate let cellId = "id"
+   
     
     private let customView: Home
     
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         customView.factsTableView.delegate = self
         customView.factsTableView.dataSource = self
-        customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
+//        customView.factsTableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         setupNavigation()
         
     }

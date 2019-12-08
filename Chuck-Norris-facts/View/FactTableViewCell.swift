@@ -15,19 +15,18 @@ class FactTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    lazy var factLabel: UILabel = {
+    let factLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .textColor
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+      
         return label
     }()
     
-    lazy var categoryLabel: UILabel = {
+    let categoryLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .categoryColor
-        label.text = "Tecnology".uppercased()
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.textColor = .white
@@ -45,7 +44,7 @@ class FactTableViewCell: UITableViewCell {
         return button
     }()
     
-    lazy var cardView : UIView = {
+    let cardView : UIView = {
         let offset = CGSize(width: 0, height: 0)
         let view = UIView()
         view.backgroundColor = .cardViewColor
@@ -66,13 +65,17 @@ class FactTableViewCell: UITableViewCell {
         
     }
     
+    func setup(fact: String, sizeFact: CGFloat,  category: String){
+        factLabel.text = fact
+        factLabel.font = UIFont.boldSystemFont(ofSize: sizeFact)
+        categoryLabel.text = category
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
 }

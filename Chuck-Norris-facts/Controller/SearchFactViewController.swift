@@ -17,7 +17,6 @@ class SearchFactViewController: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -54,6 +53,7 @@ class SearchFactViewController: UIViewController {
     func noMistake(text: String) -> Bool {
         alert = AlertsError(controller: self)
         var notError = true
+        customView.layoutIfNeeded()
         if !network.isconnected(){
             alert?.showAlertError(error: .notNetWork)
             notError = false

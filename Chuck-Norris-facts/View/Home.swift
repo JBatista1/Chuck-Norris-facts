@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RxSwift
 class Home: UIView {
     
     // MARK: - Properties

@@ -23,9 +23,15 @@ class FactViewCellTest: QuickSpec, ViewForTest {
         }
     }
     func createViewForTest() -> UIView {
-        let card = FactTableViewCell(frame: SizeViewTest.card.size)
-        card.factLabel.text = "Chuck Noris, Jesus, and Barack Obama were standing by a lake. Jesus walked out on the water and was shortly followed by Chuck. Obama tried to follow, but fell in the water. After muck kicking and splashing Jesus said. Do you think we should tell him about the “stepping stone”? Chuck then said: “What stepping stone?"
+        let card = FactTableViewCell()
+        card.setup(fact: createFact(), sizeFact: FontSizeFact.more80Characters.rawValue)
         let viewForTest = UIViewForSnapShot(TypeView: .card, isPortrait: true, withview: card)
         return viewForTest
+    }
+    func createFact() -> Fact {
+        let value = "Chuck Noris, Jesus, and Barack Obama were standing by a lake. Jesus walked out on the water and was shortly followed by Chuck. Obama tried to follow, but fell in the water. After muck kicking and splashing Jesus said. Do you think we should tell him about the “stepping stone”? Chuck then said: “What stepping stone?"
+        let category = ["UNCATEGORIZED"]
+        let fact = Fact(value: value, categories: category)
+        return fact
     }
 }

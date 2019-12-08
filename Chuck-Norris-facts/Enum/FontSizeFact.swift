@@ -7,7 +7,8 @@
 //
 
 import Foundation
-enum FontSizeFact: Int {
-    case more80Characters = 17
-    case less80Characters = 24
+import UIKit
+enum FontSizeFact: CGFloat {
+    case more80Characters = 17.0
+    case less80Characters = 23.0
 }

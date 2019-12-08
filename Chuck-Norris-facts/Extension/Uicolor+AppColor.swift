@@ -8,8 +8,10 @@
 
 import UIKit
 extension UIColor {
-    public static var categoryColor = UIColor(red: 72, green: 162, blue: 248)
-    
+    public static var categoryColor: UIColor {
+           let color = UIColor(named: "categoryColor") ?? UIColor(red: 103, green: 179, blue: 243)
+           return color
+       }
     public static var titleNavBarColor: UIColor {
         let color = UIColor(named: "titleNavBarColor") ?? .black
         return color

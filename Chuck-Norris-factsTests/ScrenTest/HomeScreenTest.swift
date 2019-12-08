@@ -19,7 +19,6 @@ class HomeScreenTest: QuickSpec,ViewForTest {
         describe("in some context") {
             it("has valid snapshot") {
                 let viewForTest =  self.createViewForTest()
-                
                 expect(viewForTest) == snapshot("HomeScreen\(SizeViewTest.iPhone8.rawValue)")
             }
         }

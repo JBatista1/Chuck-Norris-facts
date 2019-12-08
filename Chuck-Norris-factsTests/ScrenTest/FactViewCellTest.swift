@@ -18,7 +18,7 @@ class FactViewCellTest: QuickSpec, ViewForTest {
         describe("in some context") {
             it("has valid snapshot") {
                 let view = self.createViewForTest()
-                expect(view) == snapshot("Card_\(SizeViewTest.card.rawValue)")
+                expect(view) == snapshot("Card\(SizeViewTest.card.rawValue)")
             }
         }
     }

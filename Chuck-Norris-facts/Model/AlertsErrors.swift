@@ -61,7 +61,9 @@ class AlertsError {
             self.controller.present(alertController, animated: true)
         }
         
+        
     }
+    
     
     private func setAlertActions(alert: UIAlertController, alertAction: [UIAlertAction]) {
         for actions in alertAction{

@@ -12,9 +12,8 @@ protocol ItemsTableViewDatasource: UITableViewDataSource {
     associatedtype T
     var items:[T] {get}
     var tableView: UITableView? {get}
-    var delegate: UITableViewDelegate? {get}
     
-    init(items: [T], tableView: UITableView, delegate: UITableViewDelegate)
+    init(items: [T], tableView: UITableView)
     
     func setupTableView()
 }
@@ -23,5 +22,6 @@ extension ItemsTableViewDatasource {
     func setupTableView() {
         self.tableView?.dataSource = self
         self.tableView?.reloadData()
+        self.tableView?.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
     }
 }

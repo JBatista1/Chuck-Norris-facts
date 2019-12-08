@@ -10,13 +10,12 @@ import UIKit
 
 class FactDatasource: NSObject, ItemsTableViewDatasource {
     var items: [Fact] = []
-    weak var tableView: UITableView?
-    weak var delegate: UITableViewDelegate?
+    var tableView: UITableView?
     fileprivate let cellId = "id"
-    required init(items: [Fact], tableView: UITableView, delegate: UITableViewDelegate) {
+    
+    required init(items: [Fact], tableView: UITableView) {
         self.items = items
         self.tableView = tableView
-        self.delegate = delegate
         super.init()
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         self.setupTableView()
@@ -27,7 +26,9 @@ class FactDatasource: NSObject, ItemsTableViewDatasource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! FactTableViewCell
-        let character = self.items[indexPath.row]
+        let factSettings = FactSettings(fact: self.items[indexPath.row])
+        cell.setup(fact: factSettings.getFact(), sizeFact: factSettings.getSizeText())
+        
         return cell
         
     }

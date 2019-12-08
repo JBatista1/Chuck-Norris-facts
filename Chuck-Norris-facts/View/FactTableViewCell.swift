@@ -20,7 +20,6 @@ class FactTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .textColor
-      
         return label
     }()
     
@@ -65,10 +64,10 @@ class FactTableViewCell: UITableViewCell {
         
     }
     
-    func setup(fact: String, sizeFact: CGFloat,  category: String){
-        factLabel.text = fact
+    func setup(fact: Fact, sizeFact: CGFloat){
+        factLabel.text = fact.value
         factLabel.font = UIFont.boldSystemFont(ofSize: sizeFact)
-        categoryLabel.text = category
+        categoryLabel.text = fact.categories.first
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -113,8 +112,8 @@ extension FactTableViewCell: CodeView{
 
         ])
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
           

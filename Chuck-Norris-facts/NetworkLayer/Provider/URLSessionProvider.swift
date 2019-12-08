@@ -23,7 +23,6 @@ final class URLSessionProvider: ProviderProtocol {
             let httpResponse = response as? HTTPURLResponse
             self?.handleDataResponse(data: data, response: httpResponse, error: error, completion: completion)
         })
-       
         task.resume()
     }
     

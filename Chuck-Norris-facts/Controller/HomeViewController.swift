@@ -33,7 +33,6 @@ class HomeViewController: UIViewController {
         self.alert = AlertsError(controller: self)
         
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -20,7 +20,9 @@ class FactTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .textColor
+
         label.font = UIFont.boldSystemFont(ofSize: 17)
+
         return label
     }()
     
@@ -110,8 +112,8 @@ extension FactTableViewCell: CodeView{
 
         ])
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
           

@@ -10,11 +10,14 @@ import UIKit
 import RxSwift
 class HomeViewController: UIViewController {
     fileprivate let cellId = "id"
+    
     private let customView: Home
-    private var addBarButtonItem: UIBarButtonItem?
+    
     private let disposeBag = DisposeBag()
     private var sessionProvider : ProviderProtocol
     private var seachText = ""
+    private var alert: AlertsError?
+    
     private var facts = [Fact]() {
         didSet {
             DispatchQueue.main.async {
@@ -27,6 +30,8 @@ class HomeViewController: UIViewController {
         self.sessionProvider = sessionProvider
         self.customView = Home()
         super.init(nibName: nil, bundle: nil)
+        self.alert = AlertsError(controller: self)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +55,7 @@ class HomeViewController: UIViewController {
     // MARK: - Navigation
     private func setupNavigation() {
         title = "Chuck Norris Facts"
-        addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
+        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
         navigationItem.rightBarButtonItem = addBarButtonItem
         navigationController?.view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -63,18 +68,20 @@ class HomeViewController: UIViewController {
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
             self?.seachText = searchFact
-            self?.getFact()
+            self!.getFact()
         }).disposed(by: disposeBag)
         
     }
+    
     private func getFact() {
         sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
             switch response {
             case let .success(result):
                 self.facts = result.result
             case let .failure(error):
-                print(error)
+                self.alert?.showAlertNetWorError(error: error)
             }
+            
         }
     }
     

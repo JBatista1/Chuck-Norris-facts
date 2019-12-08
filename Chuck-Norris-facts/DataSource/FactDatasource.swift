@@ -20,11 +20,13 @@ class FactDatasource: NSObject, ItemsTableViewDatasource {
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: cellId)
         self.setupTableView()
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! FactTableViewCell
         let factSettings = FactSettings(fact: self.items[indexPath.row])
         cell.setup(fact: factSettings.getFact(), sizeFact: factSettings.getSizeText())

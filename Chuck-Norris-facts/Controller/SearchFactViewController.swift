@@ -19,12 +19,13 @@ class SearchFactViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     }
-    
-    
-    
     override func loadView() {
         view = customView
         setupInitial()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        customView.endEditing(true)
     }
     
     private func setupInitial(){
@@ -40,11 +41,11 @@ class SearchFactViewController: UIViewController {
     @objc func closeSearch(){
         dismiss(animated: true, completion: nil)
     }
-    
     @objc func searchFact(){
         guard let searchFact = customView.search.text else {return}
         if noMistake(text: searchFact) {
             textForSearch.onNext(searchFact)
+            customView.endEditing(true)
             dismiss(animated: true, completion: nil)
         }
             

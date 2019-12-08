@@ -50,10 +50,12 @@ class HomeViewController: UIViewController {
     }
     
     func setupTableView(with facts: [Fact]) {
-        self.facts = facts
+        let facts = facts
         DispatchQueue.main.async {
-            self.tableDatasource = FactDatasource(items: facts, tableView: self.customView.factsTableView)
+              self.tableDatasource = FactDatasource(items: facts, tableView: self.customView.factsTableView)
         }
+      
+        
     }
     
     @objc func searchFact(_ sender: UIBarButtonItem) {
@@ -71,8 +73,11 @@ class HomeViewController: UIViewController {
         sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
             switch response {
             case let .success(result):
-                self.facts = result.result
-                self.setupTableView(with: self.facts)
+                
+                if result.result.count > 0 {
+                    self.setupTableView(with: result.result)
+                }
+                
             case let .failure(error):
                 self.alert?.showAlertNetWorError(error: error)
             }

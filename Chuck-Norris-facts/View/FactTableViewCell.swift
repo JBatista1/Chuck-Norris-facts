@@ -80,9 +80,7 @@ class FactTableViewCell: UITableViewCell {
 }
 extension FactTableViewCell: CodeView{
     func setupViews() {
-        
         addSubview(cardView)
-        
         cardView.addSubview(factLabel)
         cardView.addSubview(categoryLabel)
         cardView.addSubview(sharingButton)
@@ -101,12 +99,12 @@ extension FactTableViewCell: CodeView{
             categoryLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20),
             categoryLabel.leadingAnchor.constraint(equalTo: factLabel.leadingAnchor, constant: -5),
             categoryLabel.heightAnchor.constraint(equalToConstant: 25),
-            categoryLabel.widthAnchor.constraint(equalToConstant: 120),
+            categoryLabel.widthAnchor.constraint(equalToConstant: 150)
         ])
-//
+
         NSLayoutConstraint.activate([
             sharingButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20),
-            sharingButton.trailingAnchor.constraint(equalTo: factLabel.trailingAnchor, constant: -10),
+            sharingButton.trailingAnchor.constraint(equalTo: factLabel.trailingAnchor, constant: 5),
             sharingButton.heightAnchor.constraint(equalToConstant: 25),
             sharingButton.widthAnchor.constraint(equalToConstant: 25)
 

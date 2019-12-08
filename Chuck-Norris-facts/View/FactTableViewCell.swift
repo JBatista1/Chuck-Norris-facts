@@ -20,7 +20,9 @@ class FactTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .textColor
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+
         return label
     }()
     

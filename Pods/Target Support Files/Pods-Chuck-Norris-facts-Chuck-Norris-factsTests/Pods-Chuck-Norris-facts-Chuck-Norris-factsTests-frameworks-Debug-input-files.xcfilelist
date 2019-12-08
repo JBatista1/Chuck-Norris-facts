@@ -1,6 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Chuck-Norris-facts-Chuck-Norris-factsTests/Pods-Chuck-Norris-facts-Chuck-Norris-factsTests-frameworks.sh
-${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
-${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework
 ${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework

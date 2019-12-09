@@ -12,6 +12,10 @@ extension UIColor {
            let color = UIColor(named: "categoryColor") ?? UIColor(red: 103, green: 179, blue: 243)
            return color
        }
+    public static var feedbackColor: UIColor {
+              let color = UIColor(named: "feedbackColor") ?? UIColor(red: 130, green: 130, blue: 130)
+              return color
+          }
     public static var titleNavBarColor: UIColor {
         let color = UIColor(named: "titleNavBarColor") ?? .black
         return color

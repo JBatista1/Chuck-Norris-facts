@@ -12,19 +12,19 @@ class HomeViewController: UIViewController {
     
     
     private let customView: Home
-    
+    private var typeView = SetupViewInHome.initial
     private let disposeBag = DisposeBag()
     private var sessionProvider : ProviderProtocol
-    private var seachText = ""
     private var alert: AlertsError?
     var tableDatasource: FactDatasource?
+    
     var workItem : DispatchWorkItem?
     private var facts = [Fact]()
     
     // MARK: - Init
     init(sessionProvider: ProviderProtocol) {
         self.sessionProvider = sessionProvider
-        self.customView = Home()
+        self.customView = Home(frame: .zero)
         super.init(nibName: nil, bundle: nil)
         self.alert = AlertsError(controller: self)
         
@@ -38,14 +38,14 @@ class HomeViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-
+        
     }
     
     override func loadView() {
-        view = customView
+        view = typeView.customView
     }
     @objc func appMovedToBackground() {
-
+        
     }
     
     // MARK: - Setups
@@ -72,8 +72,7 @@ class HomeViewController: UIViewController {
         search.modalPresentationStyle = .overFullScreen
         present(search, animated: true, completion: nil)
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
-            self?.seachText = searchFact
-            self!.fetchFact()
+            self!.fetchFact(searchText: searchFact)
         }).disposed(by: disposeBag)
         
     }
@@ -85,14 +84,20 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func fetchFact() {
-        sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, self.seachText)) { response  in
+    private func fetchFact(searchText: String) {
+        sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, searchText)) { response  in
             switch response {
             case let .success(result):
-                
-                if result.result.count > 0 {
-                    self.setupTableView(with: result.result)
+                DispatchQueue.main.async {
+                    if result.result.count > 0 {
+                        self.view = self.customView
+                        self.setupTableView(with: result.result)
+                    }else{
+                        self.typeView = SetupViewInHome.noResult
+                        self.view = self.typeView.customView
+                    }
                 }
+                
             case let .failure(error):
                 self.alert?.showAlertNetWorError(error: error)
             }

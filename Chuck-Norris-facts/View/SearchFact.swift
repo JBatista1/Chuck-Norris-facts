@@ -29,10 +29,12 @@ class SearchFact: UIView {
         textField.keyboardType = .asciiCapable
         return textField
     }()
+    
     let buttonSearch : UIButton = {
         let button = UIButton()
         button.setTitle("Searching", for: .normal)
         button.setTitleColor(.textButtonColor, for: .normal)
+        button.setTitleColor(.systemGray2, for: .highlighted)
         button.backgroundColor = .buttonColor
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.borderButtonColor.cgColor

@@ -14,7 +14,6 @@ class FactTableViewCell: UITableViewCell {
     let sharingIconClicked = UIImage(named: "sharingClicked")
     
     //MARK: - Properties
-    
     let factLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

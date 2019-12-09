@@ -59,6 +59,7 @@ class AlertsError {
         self.setAlertActions(alert: alertController, alertAction: alertActions)
         DispatchQueue.main.async {
             self.controller.present(alertController, animated: true)
+            
         }
         
         

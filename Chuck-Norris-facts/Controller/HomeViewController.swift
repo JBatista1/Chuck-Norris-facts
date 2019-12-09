@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     private var seachText = ""
     private var alert: AlertsError?
     var tableDatasource: FactDatasource?
-    
+    var workItem : DispatchWorkItem?
     private var facts = [Fact]()
     
     // MARK: - Init
@@ -35,9 +35,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
+
     }
+    
     override func loadView() {
         view = customView
+    }
+    @objc func appMovedToBackground() {
+
     }
     
     // MARK: - Setups
@@ -50,12 +58,12 @@ class HomeViewController: UIViewController {
     }
     
     func setupTableView(with facts: [Fact]) {
-        let facts = facts
         DispatchQueue.main.async {
-              self.tableDatasource = FactDatasource(items: facts, tableView: self.customView.factsTableView)
+            self.tableDatasource = FactDatasource(items: facts, tableView: self.customView.factsTableView)
+            self.tableDatasource?.sharingFact.subscribe(onNext: {[weak self] fact in
+                self?.showSharingFact(fact: fact)
+            }).disposed(by: self.disposeBag)
         }
-      
-        
     }
     
     @objc func searchFact(_ sender: UIBarButtonItem) {
@@ -67,6 +75,14 @@ class HomeViewController: UIViewController {
             self?.seachText = searchFact
             self!.fetchFact()
         }).disposed(by: disposeBag)
+        
+    }
+    
+    func showSharingFact(fact: String) {
+        DispatchQueue.main.async {
+            let activitityController = UIActivityViewController(activityItems: [fact], applicationActivities: nil)
+            self.present(activitityController, animated: true)
+        }
     }
     
     private func fetchFact() {
@@ -77,7 +93,6 @@ class HomeViewController: UIViewController {
                 if result.result.count > 0 {
                     self.setupTableView(with: result.result)
                 }
-                
             case let .failure(error):
                 self.alert?.showAlertNetWorError(error: error)
             }

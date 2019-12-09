@@ -18,9 +18,11 @@ class SearchFactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+       
     }
     override func loadView() {
         view = customView
+        
         setupInitial()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,6 +70,7 @@ class SearchFactViewController: UIViewController {
     
     
     // MARK: - Move view to insert keyboard
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if customView.frame.origin.y == 0 {
@@ -86,6 +89,7 @@ class SearchFactViewController: UIViewController {
 
 extension SearchFactViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
     }

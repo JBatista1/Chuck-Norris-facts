@@ -18,11 +18,3 @@ protocol ItemsTableViewDatasource: UITableViewDataSource {
     func setupTableView()
 }
 
-extension ItemsTableViewDatasource {
-    func setupTableView() {
-        self.tableView?.dataSource = self
-        self.tableView?.reloadSections([0], with: .automatic)
-        self.tableView?.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
-       
-    }
-}

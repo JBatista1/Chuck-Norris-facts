@@ -8,8 +8,8 @@
 
 import Foundation
 
-import Foundation
 import UIKit
+
 protocol ViewForTest {
-    func createViewForTest() -> UIView
+    func createViewForTest(isPortrait: Bool) -> UIView
 }

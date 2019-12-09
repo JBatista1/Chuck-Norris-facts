@@ -14,18 +14,23 @@ import UIKit
 @testable import Chuck_Norris_facts
 
 class HomeScreenTest: QuickSpec,ViewForTest {
-
+    
+    
+    
     override func spec() {
         describe("in some context") {
             it("has valid snapshot") {
-                let viewForTest =  self.createViewForTest()
-                expect(viewForTest) == snapshot("HomeScreen\(SizeViewTest.iPhone8.rawValue)")
+                let viewForTestPortrait =  self.createViewForTest(isPortrait: true)
+                let viewForTestLandscape = self.createViewForTest(isPortrait: false)
+                
+                expect(viewForTestPortrait) == snapshot("HomeScreenTest\(SizeViewTest.iPhone8.rawValue)_Portrait")
+                expect(viewForTestLandscape) == snapshot("HomeScreenTest\(SizeViewTest.iPhone8.rawValue)_Landscape")
             }
         }
     }
-    func createViewForTest() -> UIView {
+    func createViewForTest(isPortrait: Bool) -> UIView {
         let home = Home(frame: SizeViewTest.iPhone8.size)
-        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: true, withview: home)
+        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: isPortrait, withview: home)
         return viewForTest
     }
 }

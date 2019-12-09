@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 class SearchFactViewController: UIViewController {
-    private let customView = SearchFact(frame: .zero)
+    private let customView = Search(frame: .zero)
     var textForSearch = PublishSubject<String>()
     private let network = Network()
     private var alert: AlertsError!
@@ -50,16 +50,22 @@ class SearchFactViewController: UIViewController {
         }
     }
     
+   func presentView(controller: UIViewController?) {
+        guard let controller = controller  else {return}
+         present(controller, animated: true)
+    }
+    
     func noMistake(text: String) -> Bool {
-        alert = AlertsError(controller: self)
+        alert = AlertsError()
         var notError = true
         customView.layoutIfNeeded()
         if !network.isconnected(){
-            alert?.showAlertError(error: .notNetWork)
+            presentView(controller: (alert?.showAlertError(error: .notNetWork))!)
             notError = false
         }
         if text.count < 3{
-            alert?.showAlertError(error: .textLessThan3)
+            presentView(controller:  (alert?.showAlertError(error: .textLessThan3))!)
+           
             notError = false
         }
         return notError

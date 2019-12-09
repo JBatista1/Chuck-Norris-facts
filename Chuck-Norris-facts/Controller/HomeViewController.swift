@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     
     
     private let customView: Home
-    var activityView : UIActivityIndicatorView
+    private var activityView : UIActivityIndicatorView
     private var typeView = SetupViewInHome.initial
     private let disposeBag = DisposeBag()
     private var sessionProvider : ProviderProtocol
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
         self.activityView = UIActivityIndicatorView(style: .large)
         activityView.translatesAutoresizingMaskIntoConstraints = false
         super.init(nibName: nil, bundle: nil)
-        self.alert = AlertsError(controller: self)
+        self.alert = AlertsError()
     }
     
     required init?(coder: NSCoder) {
@@ -69,6 +69,10 @@ class HomeViewController: UIViewController {
         activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
+    func presentView(controller: UIViewController?) {
+        guard let controller = controller  else {return}
+         present(controller, animated: true)
+    }
     
     @objc func showSearch(_ sender: UIBarButtonItem) {
         let search = SearchFactViewController()
@@ -91,14 +95,14 @@ class HomeViewController: UIViewController {
     
     private func fetchFact(searchText: String) {
         activityView.startAnimating()
-        sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, searchText)) { response  in
+        sessionProvider.request(type: FactResult.self, service: NetworkService.getTextSearch(FactResult.self, searchText)) { response  in
             DispatchQueue.main.async {
                 self.activityView.stopAnimating()
                 switch response {
                 case let .success(result):
                     self.changeView(array: result.result)
                 case let .failure(error):
-                    self.alert?.showAlertNetWorError(error: error)
+                    self.presentView(controller: (self.alert?.showAlertNetWorError(error: error))!)
                 }
             }
         }

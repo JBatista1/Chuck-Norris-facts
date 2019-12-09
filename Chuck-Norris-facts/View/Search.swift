@@ -1,5 +1,5 @@
 //
-//  SearchFact.swift
+//  Search.swift
 //  Chuck-Norris-facts
 //
 //  Created by Joao Batista on 02/12/19.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class SearchFact: UIView {
+class Search: UIView {
     
     // MARK: - Properties
     let title: UILabel = {
         let font = UIFont.systemFont(ofSize: 27, weight: .light)
         let label = UILabel()
-        label.text = "Want you looking for a Chuck Norris?"
+        label.text = "What you looking for about Chuck Norris?"
         label.font = font
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -84,7 +84,7 @@ class SearchFact: UIView {
     
 }
 
-extension SearchFact: CodeView {
+extension Search: CodeView {
     func setupViews() {
         addSubview(viewModal)
       

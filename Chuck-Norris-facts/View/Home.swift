@@ -11,7 +11,7 @@ import RxSwift
 class Home: UIView {
     
     // MARK: - Properties
-    lazy var factsTableView: UITableView = {
+   let factsTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,11 +37,12 @@ extension Home: CodeView{
     }
     
     func setupConstraints() {
+        let margins = layoutMarginsGuide
         NSLayoutConstraint.activate([
-            factsTableView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            factsTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            factsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            factsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+            factsTableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0),
+            factsTableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0),
+            factsTableView.leadingAnchor.constraint(equalTo:margins.leadingAnchor, constant: 0),
+            factsTableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0)
         ])
     }
     

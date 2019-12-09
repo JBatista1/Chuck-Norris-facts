@@ -1,5 +1,5 @@
 //
-//  ItemsTableViewDatasource.swift
+//  TableViewDatasource.swift
 //  Chuck-Norris-facts
 //
 //  Created by Joao Batista on 08/12/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ItemsTableViewDatasource: UITableViewDataSource {
+protocol TableViewDatasource: UITableViewDataSource {
     associatedtype T
     var items:[T] {get}
     var tableView: UITableView? {get}

@@ -30,12 +30,5 @@ extension UIView {
         layer.cornerRadius = corneRadius
         clipsToBounds = true
         layer.masksToBounds = false
-//        layer.shadowRadius = 3
-//        layer.shadowColor =  UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 0)
-//        layer.shadowOpacity = 0.3
-//        layer.cornerRadius = corners
-//        clipsToBounds = true
-//        layer.masksToBounds = false
     }
 }

@@ -12,46 +12,41 @@ class HomeViewController: UIViewController {
     
     
     private let customView: Home
+    private var activityView : UIActivityIndicatorView
     private var typeView = SetupViewInHome.initial
     private let disposeBag = DisposeBag()
     private var sessionProvider : ProviderProtocol
     private var alert: AlertsError?
     var tableDatasource: FactDatasource?
     
-    var workItem : DispatchWorkItem?
-    private var facts = [Fact]()
-    
     // MARK: - Init
     init(sessionProvider: ProviderProtocol) {
         self.sessionProvider = sessionProvider
         self.customView = Home(frame: .zero)
+        self.activityView = UIActivityIndicatorView(style: .large)
+        activityView.translatesAutoresizingMaskIntoConstraints = false
         super.init(nibName: nil, bundle: nil)
-        self.alert = AlertsError(controller: self)
-        
+        self.alert = AlertsError()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        
-        
     }
     
     override func loadView() {
         view = typeView.customView
-    }
-    @objc func appMovedToBackground() {
-        
+        setupActivityView()
     }
     
     // MARK: - Setups
     private func setupNavigation() {
         title = "Chuck Norris Facts"
-        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchFact))
+        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(showSearch(_:)))
         navigationItem.rightBarButtonItem = addBarButtonItem
         navigationController?.view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -66,11 +61,24 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @objc func searchFact(_ sender: UIBarButtonItem) {
+    func setupActivityView() {
+        view.addSubview(activityView)
+        activityView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func presentView(view: UIViewController) {
+         present(view, animated: true)
+    }
+    
+    @objc func showSearch(_ sender: UIBarButtonItem) {
         let search = SearchFactViewController()
         search.modalTransitionStyle = .crossDissolve
         search.modalPresentationStyle = .overFullScreen
         present(search, animated: true, completion: nil)
+        
         search.textForSearch.subscribe(onNext: {[weak self] searchFact in
             self!.fetchFact(searchText: searchFact)
         }).disposed(by: disposeBag)
@@ -85,23 +93,29 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchFact(searchText: String) {
-        sessionProvider.request(type: FactDTO.self, service: NetworkService.getTextSearch(FactDTO.self, searchText)) { response  in
-            switch response {
-            case let .success(result):
-                DispatchQueue.main.async {
-                    if result.result.count > 0 {
-                        self.view = self.customView
-                        self.setupTableView(with: result.result)
-                    }else{
-                        self.typeView = SetupViewInHome.noResult
-                        self.view = self.typeView.customView
-                    }
+        activityView.startAnimating()
+        sessionProvider.request(type: FactResult.self, service: NetworkService.getTextSearch(FactResult.self, searchText)) { response  in
+            DispatchQueue.main.async {
+                self.activityView.stopAnimating()
+                switch response {
+                case let .success(result):
+                    self.changeView(array: result.result)
+                case let .failure(error):
+                    self.presentView(view: (self.alert?.showAlertNetWorError(error: error))!)
                 }
-                
-            case let .failure(error):
-                self.alert?.showAlertNetWorError(error: error)
             }
-            
+        }
+    }
+    
+    func changeView(array:[Fact]) {
+        if array.count > 0 {
+            self.view = self.customView
+            self.setupActivityView()
+            self.setupTableView(with: array)
+        }else{
+            self.typeView = SetupViewInHome.noResult
+            self.view = self.typeView.customView
+            self.setupActivityView()
         }
     }
 }

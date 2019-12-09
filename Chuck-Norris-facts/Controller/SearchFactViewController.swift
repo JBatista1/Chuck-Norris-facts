@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 class SearchFactViewController: UIViewController {
-    private let customView = SearchFact(frame: .zero)
+    private let customView = Search(frame: .zero)
     var textForSearch = PublishSubject<String>()
     private let network = Network()
     private var alert: AlertsError!
@@ -18,59 +18,59 @@ class SearchFactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-       
     }
+    
     override func loadView() {
         view = customView
-        
         setupInitial()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        customView.endEditing(true)
     }
     
     private func setupInitial(){
         customView.buttonCancel.addTarget(self, action: #selector(closeSearch), for: .touchUpInside)
         customView.buttonSearch.addTarget(self, action: #selector(searchFact), for: .touchUpInside)
         customView.search.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+        setupNotification()
     }
     
-    @objc func closeSearch(){
+    func setupNotification()  {
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func closeSearch(sender: UIButton){
         dismiss(animated: true, completion: nil)
     }
-    @objc func searchFact(){
+    
+    @objc func searchFact(sender: UIButton){
         guard let searchFact = customView.search.text else {return}
         if noMistake(text: searchFact) {
             textForSearch.onNext(searchFact)
             customView.endEditing(true)
             dismiss(animated: true, completion: nil)
         }
-            
-        
     }
+    
+    func presentView(view: UIViewController) {
+          self.present(view, animated: true)
+     }
+    
     func noMistake(text: String) -> Bool {
-        alert = AlertsError(controller: self)
+        alert = AlertsError()
         var notError = true
         customView.layoutIfNeeded()
         if !network.isconnected(){
-            alert?.showAlertError(error: .notNetWork)
+            presentView(view: (alert?.showAlertError(error: .notNetWork))!)
             notError = false
         }
         if text.count < 3{
-            alert?.showAlertError(error: .textLessThan3)
+            presentView(view:  (alert?.showAlertError(error: .textLessThan3))!)
+           
             notError = false
         }
         return notError
     }
     
-    
     // MARK: - Move view to insert keyboard
-    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if customView.frame.origin.y == 0 {
@@ -86,10 +86,8 @@ class SearchFactViewController: UIViewController {
     }
 }
 
-
 extension SearchFactViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
         return true
     }

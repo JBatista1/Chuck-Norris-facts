@@ -10,11 +10,9 @@ import UIKit
 
 class FactTableViewCell: UITableViewCell {
     
-    let sharingIcon = UIImage(named: "sharing")
-    let sharingIconClicked = UIImage(named: "sharingClicked")
+ 
     
     //MARK: - Properties
-    
     let factLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,8 +34,10 @@ class FactTableViewCell: UITableViewCell {
     
     lazy var sharingButton : UIButton = {
         let button = UIButton()
-        button.setImage(self.sharingIcon, for: .normal)
-        button.setImage(self.sharingIconClicked, for: .highlighted)
+        let sharingIcon = UIImage(named: "sharing")
+        let sharingIconClicked = UIImage(named: "sharingClicked")
+        button.setImage(sharingIcon, for: .normal)
+        button.setImage(sharingIconClicked, for: .highlighted)
         button.imageView?.contentMode = .scaleAspectFill
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -112,8 +112,8 @@ extension FactTableViewCell: CodeView{
         NSLayoutConstraint.activate([
             cardView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
           
         
         ])

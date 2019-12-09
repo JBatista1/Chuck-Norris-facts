@@ -25,7 +25,7 @@ class SearchFactTest: QuickSpec,ViewForTest {
         }
     }
     func createViewForTest() -> UIView {
-        let search = SearchFact(frame: SizeViewTest.iPhone8.size)
+        let search = Search(frame: SizeViewTest.iPhone8.size)
         let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: true, withview: search)
         return viewForTest
     }

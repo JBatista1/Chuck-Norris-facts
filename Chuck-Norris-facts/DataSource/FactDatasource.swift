@@ -13,6 +13,7 @@ class FactDatasource: NSObject, TableViewDatasource {
     var tableView: UITableView?
     fileprivate let cellId = "id"
     var sharingFact = PublishSubject<String>()
+    let sharingIconClicked = UIImage(named: "sharingClicked")
     
     required init(items: [Fact], tableView: UITableView) {
         self.items = items
@@ -34,7 +35,6 @@ class FactDatasource: NSObject, TableViewDatasource {
         cell.setup(fact: factSettings.getFact(), sizeFact: factSettings.getSizeText())
         cell.sharingButton.tag = indexPath.row
         cell.sharingButton.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
-        
         return cell
         
     }
@@ -47,6 +47,7 @@ class FactDatasource: NSObject, TableViewDatasource {
     
     func setupTableView() {
         self.tableView?.dataSource = self
+        self.tableView?.reloadData()
         self.tableView?.reloadSections([0], with: .automatic)
         self.tableView?.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
     }

@@ -17,6 +17,7 @@ class FeedBack: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     let feedBackText: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
@@ -35,7 +36,6 @@ class FeedBack: UIView {
         setupConstraints()
     }
  
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -55,6 +55,7 @@ extension FeedBack: CodeView{
             feedBackImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
         
         ])
+        
         NSLayoutConstraint.activate([
             feedBackText.topAnchor.constraint(equalTo: feedBackImage.bottomAnchor, constant: 25),
             feedBackText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),

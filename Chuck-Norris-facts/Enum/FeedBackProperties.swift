@@ -17,7 +17,7 @@ enum FeedBackProperties {
         case .initial:
             return ("Search facts about Chuck Norris", UIImage(named: "initial")!)
         case .notResult:
-            return ("No results found. ry again", UIImage(named: "notResult")!)
+            return ("No results found. Try again", UIImage(named: "notResult")!)
         }
     }
 }

@@ -19,14 +19,17 @@ class FeedBackINotResultScreen: QuickSpec,ViewForTest {
     override func spec() {
         describe("in some context") {
             it("has valid snapshot") {
-                let viewForTest =  self.createViewForTest()
-                expect(viewForTest) == snapshot("FeedBackNotResult\(SizeViewTest.iPhone8.rawValue)")
+                let viewForTestPortrait =  self.createViewForTest(isPortrait: true)
+                let viewForTestLandscape = self.createViewForTest(isPortrait: false)
+                
+                expect(viewForTestPortrait) == snapshot("FeedBackINotResultScreen\(SizeViewTest.iPhone8.rawValue)_Portrait")
+                expect(viewForTestLandscape) == snapshot("FeedBackINotResultScreen\(SizeViewTest.iPhone8.rawValue)_Landscape")
             }
         }
     }
-    func createViewForTest() -> UIView {
+    func createViewForTest(isPortrait: Bool) -> UIView {
         let feedBack = SetupViewInHome.noResult.customView
-        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: true, withview: feedBack)
+        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: isPortrait, withview: feedBack)
         return viewForTest
     }
 }

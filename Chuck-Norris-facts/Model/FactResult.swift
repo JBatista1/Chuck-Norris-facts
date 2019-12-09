@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct FactDTO: Codable {
+struct FactResult: Codable {
     var result: [Fact]
 }

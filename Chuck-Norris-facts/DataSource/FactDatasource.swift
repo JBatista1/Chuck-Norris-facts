@@ -8,12 +8,13 @@
 
 import UIKit
 import RxSwift
-class FactDatasource: NSObject, ItemsTableViewDatasource {
+class FactDatasource: NSObject, TableViewDatasource {
     var items: [Fact] = []
     var tableView: UITableView?
     fileprivate let cellId = "id"
     var sharingFact = PublishSubject<String>()
     let sharingIconClicked = UIImage(named: "sharingClicked")
+    
     required init(items: [Fact], tableView: UITableView) {
         self.items = items
         self.tableView = tableView
@@ -38,19 +39,19 @@ class FactDatasource: NSObject, ItemsTableViewDatasource {
         
     }
     
+    @objc func buttonAction(sender: UIButton!) {
+        let btnsendtag: UIButton = sender
+        let textSharing = "Hey, did you know that: " + items[btnsendtag.tag].value + ". Find out more interesting facts at: https://www.apple.com/ios/app-store/"
+        sharingFact.onNext(textSharing)
+    }
+    
     func setupTableView() {
         self.tableView?.dataSource = self
-        self.tableView?.delegate = self
         self.tableView?.reloadData()
         self.tableView?.reloadSections([0], with: .automatic)
         self.tableView?.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
     }
     
 }
-extension FactDatasource: UITableViewDelegate{
-    @objc func buttonAction(sender: UIButton) {
-        let textSharing = "Hey, did you know that: " + items[sender.tag].value + ". Find out more interesting facts at: https://www.apple.com/ios/app-store/"
-        sharingFact.onNext(textSharing)
-    }
-}
+
 

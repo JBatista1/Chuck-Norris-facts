@@ -14,20 +14,24 @@ import UIKit
 @testable import Chuck_Norris_facts
 
 class SearchFactTest: QuickSpec,ViewForTest {
-
+    
     override func spec() {
         describe("in some context") {
             it("has valid snapshot") {
                 
-                let viewForTest =  self.createViewForTest()
-                expect(viewForTest) == snapshot("SearchFact\(SizeViewTest.iPhone8.rawValue)")
+                let viewForTestPortrait =  self.createViewForTest(isPortrait: true)
+                let viewForTestLandscape = self.createViewForTest(isPortrait: false)
+                
+                expect(viewForTestPortrait) == snapshot("SearchFactTest\(SizeViewTest.iPhone8.rawValue)_Portrait")
+                expect(viewForTestLandscape) == snapshot("SearchFactTest\(SizeViewTest.iPhone8.rawValue)_Landscape")
             }
         }
     }
-    func createViewForTest() -> UIView {
-        let search = SearchFact(frame: SizeViewTest.iPhone8.size)
-        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: true, withview: search)
+    func createViewForTest(isPortrait: Bool) -> UIView {
+        let search = Search(frame: SizeViewTest.iPhone8.size)
+        let viewForTest =  UIViewForSnapShot(TypeView: .iPhone8, isPortrait: isPortrait, withview: search)
         return viewForTest
     }
+    
 }
 

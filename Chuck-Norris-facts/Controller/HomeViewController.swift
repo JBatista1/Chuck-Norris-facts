@@ -69,8 +69,9 @@ class HomeViewController: UIViewController {
         activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    func presentView(view: UIViewController) {
-         present(view, animated: true)
+    func presentView(controller: UIViewController?) {
+        guard let controller = controller  else {return}
+         present(controller, animated: true)
     }
     
     @objc func showSearch(_ sender: UIBarButtonItem) {
@@ -101,7 +102,7 @@ class HomeViewController: UIViewController {
                 case let .success(result):
                     self.changeView(array: result.result)
                 case let .failure(error):
-                    self.presentView(view: (self.alert?.showAlertNetWorError(error: error))!)
+                    self.presentView(controller: (self.alert?.showAlertNetWorError(error: error))!)
                 }
             }
         }

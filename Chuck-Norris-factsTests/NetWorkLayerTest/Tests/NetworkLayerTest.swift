@@ -122,7 +122,7 @@ class NetworkLayerTest: XCTestCase {
         XCTAssertEqual(sucessResult?.test, "test", "Result not obtained")
     }
     
-    // MARK: - Check results obtained after request
+    // MARK: - Integration Test: Check results obtained after request
     func testJsonMockCheckResults() {
         var facts = [Fact]()
         session.service = ServiceMock.jsonMock

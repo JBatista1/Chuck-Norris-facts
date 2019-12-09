@@ -50,20 +50,21 @@ class SearchFactViewController: UIViewController {
         }
     }
     
-    func presentView(view: UIViewController) {
-          self.present(view, animated: true)
-     }
+   func presentView(controller: UIViewController?) {
+        guard let controller = controller  else {return}
+         present(controller, animated: true)
+    }
     
     func noMistake(text: String) -> Bool {
         alert = AlertsError()
         var notError = true
         customView.layoutIfNeeded()
         if !network.isconnected(){
-            presentView(view: (alert?.showAlertError(error: .notNetWork))!)
+            presentView(controller: (alert?.showAlertError(error: .notNetWork))!)
             notError = false
         }
         if text.count < 3{
-            presentView(view:  (alert?.showAlertError(error: .textLessThan3))!)
+            presentView(controller:  (alert?.showAlertError(error: .textLessThan3))!)
            
             notError = false
         }

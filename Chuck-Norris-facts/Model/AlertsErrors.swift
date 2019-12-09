@@ -12,9 +12,9 @@ import UIKit
 class AlertsError {
     private var messageError = String()
     private var titleError = String()
-    
-    func showAlertError(error: TypeError) -> UIViewController{
-        var alert = UIViewController()
+    var alert : UIAlertController?
+    func showAlertError(error: TypeError) -> UIViewController? {
+        
         switch error {
         case .notConnectServe:
             titleError = "Unable to connect to server"
@@ -39,7 +39,7 @@ class AlertsError {
         }
         return alert
     }
-    func showAlertNetWorError(error: NetworkError) -> UIViewController{
+    func showAlertNetWorError(error: NetworkError) -> UIAlertController?{
         var typeError = TypeError.notConnectServe
         switch error {
         case .clientError(_,  _):
@@ -47,11 +47,11 @@ class AlertsError {
         default:
             typeError = TypeError.notConnectServe
         }
-        let alert = showAlertError(error: typeError)
+        self.alert = showAlertError(error: typeError) as? UIAlertController 
         return alert
     }
     
-    private func showAlert(title: String, message: String,  alertActions: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)])-> UIViewController{
+    private func showAlert(title: String, message: String,  alertActions: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)])-> UIAlertController? {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         self.setAlertActions(alert: alertController, alertAction: alertActions)
         return alertController

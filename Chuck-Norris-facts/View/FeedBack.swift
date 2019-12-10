@@ -27,7 +27,7 @@ class FeedBack: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // MARK: - Init
     init(frame: CGRect, text: String, image: UIImage ) {
         super.init(frame: frame)
         feedBackImage.image = image

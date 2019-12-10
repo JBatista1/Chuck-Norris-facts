@@ -31,6 +31,7 @@ class Home: UIView {
     }
     
 }
+
 extension Home: CodeView{
     func setupViews() {
         self.addSubview(factsTableView)

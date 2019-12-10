@@ -61,6 +61,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+     // MARK: - Show Views
     func setupActivityView() {
         view.addSubview(activityView)
         activityView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController {
     
     func presentView(controller: UIViewController?) {
         guard let controller = controller  else {return}
-         present(controller, animated: true)
+        present(controller, animated: true)
     }
     
     @objc func showSearch(_ sender: UIBarButtonItem) {
@@ -92,7 +93,7 @@ class HomeViewController: UIViewController {
             self.present(activitityController, animated: true)
         }
     }
-    
+     // MARK: - fetch in API
     private func fetchFact(searchText: String) {
         activityView.startAnimating()
         sessionProvider.request(type: FactResult.self, service: NetworkService.getTextSearch(FactResult.self, searchText)) { response  in

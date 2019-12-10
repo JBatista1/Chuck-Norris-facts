@@ -123,7 +123,7 @@
 		9A632B0623996BF200C777E2 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		9A632B082399799300C777E2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9A6A8A2F239E9D7F00C97A05 /* FactSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactSettingsTests.swift; sourceTree = "<group>"; };
-		9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck-Norris-facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A6DBD96238CA3DE006D7805 /* Chuck Facts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chuck Facts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6DBD99238CA3DE006D7805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6DBD9B238CA3DE006D7805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9A6DBDA2238CA3E0006D7805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		9A6DBD97238CA3DE006D7805 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */,
+				9A6DBD96238CA3DE006D7805 /* Chuck Facts.app */,
 				9A6DBDAC238CA3E0006D7805 /* Chuck-Norris-factsTests.xctest */,
 				9A6DBDB7238CA3E0006D7805 /* Chuck-Norris-factsUITests.xctest */,
 			);
@@ -520,7 +520,7 @@
 			);
 			name = "Chuck-Norris-facts";
 			productName = "Chuck-Norris-facts";
-			productReference = 9A6DBD96238CA3DE006D7805 /* Chuck-Norris-facts.app */;
+			productReference = 9A6DBD96238CA3DE006D7805 /* Chuck Facts.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9A6DBDAB238CA3E0006D7805 /* Chuck-Norris-factsTests */ = {
@@ -988,7 +988,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joaoBatista.Chuck-Norris-facts";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Chuck Facts";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1008,7 +1008,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joaoBatista.Chuck-Norris-facts";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Chuck Facts";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -9,19 +9,42 @@
 import XCTest
 
 class Chuck_Norris_factsUITests: XCTestCase {
-
+    
     override func setUp() {
         continueAfterFailure = false
         let app = XCUIApplication()
         app.launch()
     }
-
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testDissmissSearchFact() {
+        let app = XCUIApplication()
+        app.navigationBars["Chuck Norris Facts"].buttons["magnifyingglass"].tap()
+        app.buttons["xmark"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+        
     }
+    func testSearchFact(){
+         let textMock = "Brazil"
+              let app = XCUIApplication()
+              let chuckNorrisFactsNavigationBar = app.navigationBars["Chuck Norris Facts"]
+              chuckNorrisFactsNavigationBar.buttons["magnifyingglass"].tap()
+              let textField = app.textFields["Searching..."]
+              textField.tap()
+              textField.typeText(textMock)
+              app.buttons["Searching"].tap()
+
+    }
+    
+    func testTextless3characters() {
+        let textMock = "A"
+        let app = XCUIApplication()
+        app.navigationBars["Chuck Norris Facts"].buttons["magnifyingglass"].tap()
+        app.textFields["Searching..."].tap()
+        let textField = app.textFields["Searching..."]
+        textField.tap()
+        textField.typeText(textMock)
+        app.buttons["Searching"].tap()
+    }
+    
+    
+    
 }

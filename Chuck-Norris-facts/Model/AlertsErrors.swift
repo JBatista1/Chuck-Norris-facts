@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
+
+
 class AlertsError {
+    
     private var messageError = String()
     private var titleError = String()
     var alert : UIAlertController?
-    func showAlertError(error: TypeError) -> UIViewController? {
+    
+    func showAlertError(error: TypeError) -> UIAlertController? {
         
         switch error {
         case .notConnectServe:
@@ -39,6 +43,7 @@ class AlertsError {
         }
         return alert
     }
+    
     func showAlertNetWorError(error: NetworkError) -> UIAlertController?{
         var typeError = TypeError.notConnectServe
         switch error {
@@ -47,7 +52,7 @@ class AlertsError {
         default:
             typeError = TypeError.notConnectServe
         }
-        self.alert = showAlertError(error: typeError) as? UIAlertController 
+        self.alert = showAlertError(error: typeError)
         return alert
     }
     

@@ -60,6 +60,7 @@ class HomeViewController: UIViewController {
             }).disposed(by: self.disposeBag)
         }
     }
+    
      // MARK: - Show Views
     func setupActivityView() {
         view.addSubview(activityView)
@@ -92,7 +93,7 @@ class HomeViewController: UIViewController {
             self.present(activitityController, animated: true)
         }
     }
-    
+     // MARK: - fetch in API
     private func fetchFact(searchText: String) {
         activityView.startAnimating()
         sessionProvider.request(type: FactResult.self, service: NetworkService.getTextSearch(FactResult.self, searchText)) { response  in
